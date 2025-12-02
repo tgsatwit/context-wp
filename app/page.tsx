@@ -6,6 +6,8 @@ import NextImage from "next/image"
 import { GrainOverlay } from "@/components/grain-overlay"
 import { ContentSection } from "@/components/sections/content-section"
 import { TabbedContentSection } from "@/components/sections/tabbed-content-section"
+import { FrameworkSection } from "@/components/sections/framework-section"
+import { SubTabs } from "@/components/ui/sub-tabs"
 import { MagneticButton } from "@/components/magnetic-button"
 import { useRef, useEffect, useState } from "react"
 
@@ -23,6 +25,7 @@ export default function Home() {
     "The Problem",
     "Structural Reality",
     "Why AI Changes Everything",
+    "Responsibility Shift",
     "The Solution",
 
     "Business Case",
@@ -260,7 +263,7 @@ export default function Home() {
             <div className="mb-4 inline-block animate-in fade-in slide-in-from-bottom-4 rounded-full border border-foreground/20 bg-foreground/15 px-4 py-1.5 backdrop-blur-md duration-700">
               <p className="font-mono text-xs text-foreground/90">The Context-First Organisation</p>
             </div>
-            <h1 className="mb-6 animate-in fade-in slide-in-from-bottom-8 font-sans text-5xl font-light leading-[1.1] tracking-tight text-foreground duration-1000 md:text-7xl lg:text-8xl">
+            <h1 className="mb-6 animate-in fade-in slide-in-from-bottom-8 font-sans text-4xl font-light leading-[1.1] tracking-tight text-foreground duration-1000 md:text-6xl lg:text-7xl">
               <span className="text-balance">
                 Show me the context,
                 <br />
@@ -474,7 +477,7 @@ export default function Home() {
                     There is a fundamental tension between how we have been trained to work and what AI requires to function. The Agile Manifesto’s "Working software over comprehensive documentation" was a necessary correction to Waterfall, but in the age of AI, this mindset has become antithetical to progress.
                   </p>
                   <p className="mb-4">
-                    Traditional Agile relies on <strong>tacit knowledge</strong> and <strong>conversation</strong>. We minimise documentation because we assume we can "set up a quick meeting" or "jump on a standup" to fill the gaps. The documentation that <em>does</em> exist is almost always created post-hoc, after the work is done.
+                    Traditional Agile relies on tacit knowledge and conversation. We minimise documentation because we assume we can "set up a quick meeting" or "jump on a standup" to fill the gaps. The documentation that <em>does</em> exist is almost always created post-hoc, after the work is done.
                   </p>
                   <p className="mb-4">
                     <strong>This approach is fatal for AI adoption.</strong>
@@ -517,125 +520,226 @@ export default function Home() {
           ]}
         />
 
-        <TabbedContentSection
+        <ContentSection
+          title="The Responsibility Shift"
+          subtitle="From Broadcaster to Publisher"
+        >
+          <div>
+            <p className="mb-4">
+              The emergence of AI and modern tooling has further exposed the context flow problem. It highlights that verbally communicating context is no longer sufficient.
+            </p>
+            <p>
+              This creates a new responsibility: the holder of the context must share it in a form that allows the recipient to consume it effectively with AI tools.
+            </p>
+          </div>
+          <div>
+            <p className="mb-4">
+              The context holder must now be a "publisher," not just a broadcaster. Thankfully, there’s a great new tool to help them do this… AI to document the context in long form.
+            </p>
+            <p>
+              By providing this detailed, accessible context, they enable their teams to immediately leverage it in their own AI workflows, preventing massive duplication of effort and misalignment.
+            </p>
+          </div>
+        </ContentSection>
+
+
+
+        <FrameworkSection
           title="The Solution"
           subtitle="Context-First Framework"
-          imagePosition="left"
           tabs={[
             {
               label: "Overview",
-              // TODO: Generate image: solution-overview-pillars.png
-              // Prompt: Abstract 3D visualization of three strong pillars supporting a structure. Represents 'Three Pillars'. Glowing blue. Dark background.
-              imageSrc: "/structural-reality.png",
-              imageAlt: "Visual: Overview",
               content: (
                 <>
                   <p className="mb-4">
-                    We must change our approach. Instead of using collaboration to find context, we need to create context to enable collaboration. This new approach is built on producing, managing, and leveraging <strong>Context Artefacts</strong>: high-leverage, structured context documents that are readable by humans but built for AI, and are used as context seed into prompts or agents.
+                    We must change our approach. Instead of using collaboration to find context, we need to create context to enable collaboration. This new approach is built on producing, managing, and leveraging <strong>Context Artefacts</strong>: high-leverage, structured context documents that are readable by humans but built for AI.
                   </p>
+                  <div className="my-6 rounded-lg border border-white/10 bg-white/5 p-4">
+                    <p className="text-sm font-medium text-foreground/90">
+                      <strong>Low-Tech, High-Impact:</strong> This solution is relatively low-tech. While it can be supported by purpose-built tools, it can simply be specifically created Word/PDF documents. The innovation is in changing how we operate to adapt to AI, not in buying new software.
+                    </p>
+                  </div>
                   <p>
-                    This new operating model is built on three pillars that describe how these artefacts are created, managed, and used:
+                    This new operating model is built on three pillars:
                   </p>
                   <ol className="list-decimal pl-4 space-y-2 mt-4">
                     <li><strong>Context Cascade:</strong> The process of distilling and flowing Context Artefacts down through the organisation.</li>
-                    <li><strong>Context Core:</strong> The practice of maintaining high-leverage Context Artefacts at a local level, moving knowledge from people’s heads into these shared, queryable assets.</li>
-                    <li><strong>Changing Our Patterns of Work:</strong> The new patterns of work that are oriented around the creation, distribution and use of Context Artefacts.</li>
+                    <li><strong>Context Core:</strong> The practice of using foundational context to easily create detailed context for specific components. It is the central engine that allows you to build out knowledge efficiently.</li>
+                    <li><strong>Patterns of Work:</strong> The new patterns of work that are oriented around the creation, distribution and use of Context Artefacts.</li>
                   </ol>
                 </>
               ),
             },
             {
               label: "1. Context Cascade",
-              // TODO: Generate image: context-cascade-waterfall.png
-              // Prompt: Abstract 3D visualization of a waterfall of data/light. Flowing downwards through levels. Hierarchical. Glowing blue. Dark background.
-              imageSrc: "/context-flow-problem.png",
-              imageAlt: "Visual: Context Cascade",
               content: (
-                <>
-                  <p className="mb-4">
-                    Inspired by cascading style sheets in software, Context Cascade establishes a hierarchy of shared context that flows throughout the organisation. Each level inherits context from the levels higher.
-                  </p>
-                  <p className="mb-4">
-                    Strategy Forums, Town Halls and Leadership calls would of course remain the cornerstone, but supplementing these and the presentations, structured <strong>Context Artefacts</strong> would be distributed:
-                  </p>
-                  <ul className="list-disc pl-4 space-y-2 text-base mb-4">
-                    <li>
-                      <strong>Group level:</strong> This might be one or many artefacts serving as the primary source of truth. It is a living document that evolves quarter-to-quarter, structured into two layers:
-                      <ul className="list-disc pl-4 mt-2 space-y-1">
-                        <li><strong>The Fixed Components:</strong> Enduring elements like Strategy, Vision, Values, and Leadership Principles.</li>
-                        <li><strong>The Variable Components:</strong> The specific priorities for the upcoming quarter and reflections on the last. This explicitly captures the narrative often lost in leadership calls, the rationale, the "why now," and the nuance, so it can be reused.</li>
-                      </ul>
-                    </li>
-                    <li>
-                      <strong>Division and Domain level:</strong> Similar structure, but more detail for that division (Tech, Operations, Retail, Business Banking, Institutional etc) and domain (the next level down) showing how they align to and extend the Group context.
-                    </li>
-                    <li>
-                      <strong>Team level:</strong> Teams can then query these documents with AI to understand implications for their specific work.
-                    </li>
-                  </ul>
-                  <p className="mb-2 font-bold">How it works:</p>
-                  <ul className="list-disc pl-4 space-y-2 text-base">
-                    <li><strong>Shared context flows down:</strong> The organisation’s strategy, rationale, priorities, and guardrails cascade downward (as Context Artefacts) from the organisation to divisions to teams.</li>
-                    <li><strong>Local context extends and refines:</strong> Each team or initiative extends the context locally by adding feature-specific details to their own Context Artefacts: intended outcomes, acceptance criteria, evidence required.</li>
-                    <li><strong>Consistency consolidates upward:</strong> Because every team’s context is structured, insights and updates can roll back up the chain with minimal effort.</li>
-                  </ul>
-                </>
+                <SubTabs
+                  tabs={[
+                    {
+                      label: "What is it?",
+                      content: (
+                        <>
+                          <p className="mb-4">
+                            Context Cascade establishes a hierarchy of shared context that flows throughout the organisation. It supplements traditional communication with structured <strong>Context Artefacts</strong>:
+                          </p>
+                          <ul className="list-disc pl-4 space-y-2 mb-4">
+                            <li>
+                              <strong>Group Level:</strong> The primary source of truth. It is a living document that evolves quarter-to-quarter, structured into two layers:
+                              <ul className="list-disc pl-4 mt-2 space-y-1">
+                                <li><strong>The Fixed Components:</strong> Enduring elements like Strategy, Vision, Values, and Leadership Principles.</li>
+                                <li><strong>The Variable Components:</strong> The specific priorities for the upcoming quarter and reflections on the last. This explicitly captures the narrative often lost in leadership calls, the rationale, the "why now," and the nuance, so it can be reused.</li>
+                              </ul>
+                            </li>
+                            <li>
+                              <strong>Division/Domain Level:</strong> Similar structure, but more detail for that division (Tech, Operations, Retail, etc) showing how they align to and extend the Group context.
+                            </li>
+                            <li>
+                              <strong>Team Level:</strong> Teams can then query these documents with AI to understand implications for their specific work.
+                            </li>
+                          </ul>
+                          <p>
+                            <strong>How it works:</strong> Shared context flows down, local context extends and refines it (adding intended outcomes, acceptance criteria), and consistency consolidates upward.
+                          </p>
+                        </>
+                      ),
+                    },
+                    {
+                      label: "Why it matters",
+                      content: (
+                        <ul className="list-disc pl-4 space-y-2">
+                          <li>
+                            <strong>Quality & Speed:</strong> Ensures every team starts with the same "source of truth," enabling faster decision-making and higher quality alignment without micromanagement.
+                          </li>
+                          <li>
+                            <strong>AI Adoption:</strong> Provides the structured hierarchy AI needs to understand the relationship between broad strategy and specific execution, preventing hallucinations.
+                          </li>
+                          <li>
+                            <strong>Efficiency:</strong> Drastically reduces the need for constant sync meetings just to "get on the same page."
+                          </li>
+                        </ul>
+                      ),
+                    },
+                    {
+                      label: "Example",
+                      content: (
+                        <p>
+                          The CEO publishes the quarterly strategy (Group). The CTO extends this with a technical roadmap (Division). A Product Team imports both into their AI context window to generate a backlog that is technically sound and strategically aligned (Team).
+                        </p>
+                      ),
+                    },
+                  ]}
+                />
               ),
             },
             {
               label: "2. Context Core",
-              // TODO: Generate image: context-core-hub.png
-              // Prompt: Abstract 3D visualization of a central hub or reactor. Pulsing with energy/data. Connected to everything. Glowing blue core. Dark background.
-              imageSrc: "/ai-context-fuel.png",
-              imageAlt: "Visual: Context Core",
               content: (
-                <>
-                  <p className="mb-4">
-                    Thinking of the organisation as a graph, at each ‘node’ of the cascade, context needs to be made operational and accessible. The Context Core is that operational hub: a team’s knowledge hub for its <strong>Context Artefacts</strong>, serving as a living, queryable repository.
-                  </p>
-                  <p className="mb-4">
-                    Ideally, you should think about starting with your highest leverage artifacts at the core as foundational and build out knowledge from there.
-                  </p>
-                  <p className="mb-2 font-medium">A foundational set of <strong>Context Artefacts</strong> for a team might contain:</p>
-                  <ul className="list-disc pl-4 space-y-1 mb-4">
-                    <li><strong>Vision/Purpose:</strong> The fundamental purpose, problem, and intended outcomes for a domain, team or product; the core strategic pillars that the work aligns with; the long-term priorities, governing policies, brand guidelines, and risk guardrails.</li>
-                    <li><strong>Annual/Quarterly Priorities (The "Variable"):</strong> The specific "why-now" rationale, key OKRs for the period, and success measures.</li>
-                    <li><strong>Reflections / Decision Log:</strong> A running log of key decisions, learnings from past cycles, and a "what changed" log to keep the artefact alive.</li>
-                    <li><strong>Dependencies:</strong> Key dependencies, interfaces, and owners (teams or systems).</li>
-                    <li><strong>Explicit Definition of Done:</strong> What “done” looks like. This is where “instinct” becomes a concrete, verifiable standard.</li>
-                  </ul>
-                  <p>
-                    Critically, the Context Core is where work happens first. A standing policy in context-first teams is: <strong>“resolve it in the hub before calling a meeting.”</strong> This habit ensures that the Context Artefacts stay complete and current, and it dramatically reduces the need for repetitive status meetings and probability of adhoc meetings to provide updates or drip feed information.
-                  </p>
-                </>
+                <SubTabs
+                  tabs={[
+                    {
+                      label: "What is it?",
+                      content: (
+                        <>
+                          <p className="mb-4">
+                            The Context Core is the operational hub—a team’s living repository of <strong>Context Artefacts</strong>. It is where knowledge moves from people’s heads into shared, queryable assets.
+                          </p>
+                          <p className="mb-4">
+                            Ideally, you should think about starting with your highest leverage artifacts at the core as foundational and build out knowledge from there. A foundational set might contain:
+                          </p>
+                          <ul className="list-disc pl-4 space-y-1 mb-4">
+                            <li><strong>Vision/Purpose:</strong> The fundamental purpose, problem, and intended outcomes.</li>
+                            <li><strong>Annual/Quarterly Priorities:</strong> The "why-now" rationale and OKRs.</li>
+                            <li><strong>Reflections / Decision Log:</strong> A running log of key decisions and learnings.</li>
+                            <li><strong>Dependencies:</strong> Key dependencies, interfaces, and owners.</li>
+                            <li><strong>Explicit Definition of Done:</strong> What “done” looks like. This is where “instinct” becomes a concrete, verifiable standard.</li>
+                          </ul>
+                          <p className="mb-4">
+                            From this core, you can build detailed context for new features, ensuring every user story is aligned with upstream context.
+                          </p>
+                          <p>
+                            <strong>How it works:</strong> "Resolve it in the hub." Before calling a meeting, check the hub. If the answer isn't there, update the artefact <em>then</em> share it.
+                          </p>
+                        </>
+                      ),
+                    },
+                    {
+                      label: "Why it matters",
+                      content: (
+                        <ul className="list-disc pl-4 space-y-2">
+                          <li>
+                            <strong>Quality & Speed:</strong> Empowers individuals to move fast with confidence, knowing they are building on verified foundational context rather than guessing.
+                          </li>
+                          <li>
+                            <strong>AI Adoption:</strong> Gives AI the explicit standards (like Definition of Done) it needs to produce high-quality output, not just generic drafts.
+                          </li>
+                          <li>
+                            <strong>Efficiency:</strong> Dramatically reduces status meetings and "quick questions" by making knowledge queryable 24/7.
+                          </li>
+                        </ul>
+                      ),
+                    },
+                    {
+                      label: "Example",
+                      content: (
+                        <p>
+                          Instead of a 1-hour meeting to debate "quality," a team refers to their "Explicit Definition of Done" artefact in the Core. They use AI to check their code against this standard, resolving the issue in minutes without a meeting.
+                        </p>
+                      ),
+                    },
+                  ]}
+                />
               ),
             },
             {
               label: "3. Patterns of Work",
-              // TODO: Generate image: patterns-of-work-flow.png
-              // Prompt: Abstract 3D visualization of a rhythmic pattern or wave. Synchronized, orderly flow. Dark background. Blue lines.
-              imageSrc: "/structural-reality.png",
-              imageAlt: "Visual: Patterns of Work",
               content: (
-                <>
-                  <p className="mb-4">
-                    This pillar is about when and how you produce <strong>Context Artefacts</strong>. It represents the shift from “docs-last” to context-first execution.
-                  </p>
-                  <p className="mb-4">
-                    The new pattern has two main steps: <strong>Pause</strong> and <strong>Prime</strong>:
-                  </p>
-                  <ul className="list-disc pl-4 space-y-4">
-                    <li>
-                      <strong>Pause:</strong> Take a short, focused pause before jumping into building. Use this time to write down the “why,” the “what,” and the guiding principles <em>into an initial Context Artefact</em>. This is not waterfall planning; it is the minimal critical act of making your intent explicit. This step prevents the common trap of automating an existing, inefficient process rather than pausing to reimagine the work itself. It’s where the context holder discharges their responsibility of capturing context.
-                    </li>
-                    <li>
-                      <strong>Prime:</strong> Immediately publish the seed <strong>Context Artefact</strong> to all stakeholders and systems. So all that are involved in the process of delivering this strategy, product or feature (e.g. Risk, Compliance, Change, and Engineering) all get this context from day zero.
-                    </li>
-                  </ul>
-                  <p className="mt-4">
-                    By focusing on 'Pause and Prime,' we create a better mechanism to share context upfront. This structured sharing is what <em>allows</em> teams to work in parallel, replacing the need for endless kickoff meetings and email chains just to start work. It shifts the coordination tax from a reactive burden to a proactive, low-friction setup.
-                  </p>
-                </>
+                <SubTabs
+                  tabs={[
+                    {
+                      label: "What is it?",
+                      content: (
+                        <>
+                          <p className="mb-4">
+                            The shift from "docs-last" (Agile default) to "context-first" execution. It changes <em>when</em> and <em>how</em> we capture knowledge using two steps:
+                          </p>
+                          <ul className="list-disc pl-4 space-y-4">
+                            <li>
+                              <strong>Pause:</strong> Take a short, focused pause before jumping into building. Use this time to write down the “why,” the “what,” and the guiding principles <em>into an initial Context Artefact</em>. This is not waterfall planning; it is the minimal critical act of making your intent explicit. It prevents the trap of automating inefficient processes.
+                            </li>
+                            <li>
+                              <strong>Prime:</strong> Immediately publish the seed <strong>Context Artefact</strong> to all stakeholders and systems. So all that are involved (Risk, Compliance, Engineering) get this context from day zero.
+                            </li>
+                          </ul>
+                        </>
+                      ),
+                    },
+                    {
+                      label: "Why it matters",
+                      content: (
+                        <ul className="list-disc pl-4 space-y-2">
+                          <li>
+                            <strong>Quality & Speed:</strong> Shifts coordination from a reactive burden to a proactive setup, allowing teams to work in parallel from day one.
+                          </li>
+                          <li>
+                            <strong>AI Adoption:</strong> Ensures context is captured <em>before</em> work starts, which is the only time AI can use it to help you build.
+                          </li>
+                          <li>
+                            <strong>Efficiency:</strong> Replaces the "meeting to plan the meeting" with high-value problem solving sessions.
+                          </li>
+                        </ul>
+                      ),
+                    },
+                    {
+                      label: "Example",
+                      content: (
+                        <p>
+                          A Product Manager writes a 1-page "Context Brief" (Pause) and shares it with Engineering and Legal (Prime) <em>before</em> the kickoff meeting. The meeting is then used for high-value problem solving, not basic information sharing.
+                        </p>
+                      ),
+                    },
+                  ]}
+                />
               ),
             },
           ]}
@@ -835,4 +939,3 @@ export default function Home() {
     </main>
   )
 }
-

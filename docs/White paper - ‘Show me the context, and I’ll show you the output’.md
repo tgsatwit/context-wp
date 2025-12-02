@@ -120,7 +120,7 @@ This new operating model is built on three pillars that describe how these artef
 
 ### Context Cascade
 
-Inspired by cascading style sheets in software, Context Cascade establishes a hierarchy of shared context that flows throughout the organisation. Each level inherits context from the levels higher.
+Context Cascade establishes a hierarchy of shared context that flows throughout the organisation. Each level inherits context from the levels higher.
 
 **What Context Cascade would enable in the strategy refresh example:**
 
