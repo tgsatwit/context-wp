@@ -16,9 +16,9 @@ export function ContentSection({ title, subtitle, children, className = "" }: Co
     return (
         <section
             ref={ref}
-            className={`flex h-screen w-screen shrink-0 snap-start items-center px-6 pt-20 md:px-12 md:pt-0 lg:px-16 ${className}`}
+            className={`flex h-screen w-screen shrink-0 snap-start flex-col overflow-y-auto px-6 pt-24 md:items-center md:justify-center md:overflow-hidden md:px-12 md:pt-0 lg:px-16 ${className}`}
         >
-            <div className="mx-auto w-full max-w-7xl">
+            <div className="mx-auto w-full max-w-7xl pb-24 md:pb-0">
                 <div
                     className={`mb-8 transition-all duration-700 md:mb-12 ${isVisible ? "translate-y-0 opacity-100" : "-translate-y-12 opacity-0"
                         }`}

@@ -181,34 +181,7 @@ By focusing on 'Pause and Prime,' we create a better mechanism to share context 
 
 By focussing on this in context dense moments like quarterly planning, with thoughtfully designed artefacts, we show people the criticality and power of the right context when using AI. They can then apply these principles at a local 
 
-### The Agent Gateway: Designing for Context and Adoption
 
-A primary goal of the Context-First approach is reducing the coordination tax - the crushing volume of emails and meetings required just to get to the starting line of a task. But we shouldn't just think of agents as "task completers." We need to think about agent design as a mechanism to solve the context flow problem itself.
-
-If we view the organisation as a knowledge graph, our objective isn't just to minimize hops; it's to ensure that every interaction adds value to the graph. We should design agents that don't just consume context to do a job, but actively help users **build context** as part of the process.
-
-Currently, a request often bounces back and forth between a requester and a specialist multiple times. By placing an agent—empowered with **Context Artefacts**—between these nodes, we absorb these preliminary iterations. But more importantly, the agent acts as a coach, ensuring that the necessary context is created and structured _before_ it reaches the human expert.
-
-To achieve this, we must design agents with a dual-sided interaction model that acknowledges the distinct needs of the non-specialist and the specialist.
-
-**For the Non-Specialist (The Requester): The Gatekeeper and Coach**
-
-Currently, a product manager might email a risk specialist, wait two days, and receive a reply: "I need more details on X." This ping-pong consumes weeks.
-
-In a Context-First organisation, the non-specialist engages a Risk Agent _prior_ to engaging the human specialist. The agent isn't just a guard; it's a context builder. Because it is seeded with the Risk Context Artefacts (policies, required data fields), it guides the user to construct the request. It asks specific questions and flags obvious gaps, helping the user curate a complete "context packet" (a mini Context Artefact) for this specific request.
-
-By the time the human risk specialist is engaged, the request is not just valid—it's complete. The "context gathering" phase is automated, and the user has been trained on what "good" looks like.
-
-**For the Specialist (The Expert): The Synthesizer**
-
-The specialist uses the same agent but for a different purpose. They act as the "Approver" or "Expert Reviewer."
-
-1. **Synthesizer:** They use the agent to synthesize the incoming context: "Summarize the proposed feature and highlight the three primary risk vectors based on our current policy."
-    
-2. **Quality Check:** They use the agent as a peer reviewer to round out their human judgment: "Review my assessment. Have I missed any constraints listed in the Group Risk Appetite?"
-    
-
-This dual design ensures that the human expert operates at the top of their license—analysing and deciding—rather than spending their time collecting basic information.
 
 ## The Business Case: Why Context is Worth the Investment
 
