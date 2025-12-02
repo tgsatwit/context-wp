@@ -382,10 +382,16 @@ export default function Home() {
                     But move down to the teams that deliver, and the structural reality shifts. These teams exist in a dense web of dependencies: coordinating with other teams, clarifying requirements, validating with risk and compliance.
                   </p>
                   <p className="mb-4">
-                    They cannot simply "opt out"; they must respond to the coordination demands their role creates. The number of connections, and therefore the coordination overhead, grows exponentially.
+                    The critical knowledge isn’t in a system; it’s in people’s heads. Bottlenecks form around key people because that’s where the context is trapped. Delivery can only move as fast as their capacity allows.
+                  </p>
+                  <p className="mb-4">
+                    We use meetings and emails as a way to transfer context - but it's incredibly inefficient, the context is often available to those involved at that time.
+                  </p>
+                  <p className="mb-4">
+                    Our failing response is to add more people. When we need to speed up, we add more nodes to the bottleneck, which exponentially increases the connections and noise, compounding the problem (the birthday paradox).
                   </p>
                   <p>
-                    The critical knowledge isn’t in a system; it’s in people’s heads. Bottlenecks form around key people because that’s where the context is trapped. Delivery can only move as fast as their capacity allows.
+                    Thinking of the organisation as a graph, you can envisage how complex this web gets and how many iterations there are between these nodes transferring context. This is often what can slow delivery.
                   </p>
                 </>
               ),
@@ -607,17 +613,17 @@ export default function Home() {
                     {
                       label: "Why it matters",
                       content: (
-                        <ul className="list-disc pl-4 space-y-2">
-                          <li>
-                            <strong>Quality & Speed:</strong> Ensures every team starts with the same "source of truth," enabling faster decision-making and higher quality alignment without micromanagement.
-                          </li>
-                          <li>
-                            <strong>AI Adoption:</strong> Provides the structured hierarchy AI needs to understand the relationship between broad strategy and specific execution, preventing hallucinations.
-                          </li>
-                          <li>
-                            <strong>Efficiency:</strong> Drastically reduces the need for constant sync meetings just to "get on the same page."
-                          </li>
-                        </ul>
+                        <>
+                          <p className="mb-4">
+                            <strong>Solves the "Strategy Refresh" Scavenger Hunt:</strong> Remember the example of visiting 20 pages to reconstruct the strategy? Context Cascade eliminates this.
+                          </p>
+                          <p className="mb-4">
+                            Instead of leaders spending days hunting and synthesising context, they receive curated artefacts they can immediately use.
+                          </p>
+                          <p>
+                            It ensures that when a team uses AI to plan their backlog, they are aligned with the CEO's actual intent (the "why" and "rationale"), not just a guess based on a bullet point.
+                          </p>
+                        </>
                       ),
                     },
                     {
@@ -666,17 +672,17 @@ export default function Home() {
                     {
                       label: "Why it matters",
                       content: (
-                        <ul className="list-disc pl-4 space-y-2">
-                          <li>
-                            <strong>Quality & Speed:</strong> Empowers individuals to move fast with confidence, knowing they are building on verified foundational context rather than guessing.
-                          </li>
-                          <li>
-                            <strong>AI Adoption:</strong> Gives AI the explicit standards (like Definition of Done) it needs to produce high-quality output, not just generic drafts.
-                          </li>
-                          <li>
-                            <strong>Efficiency:</strong> Dramatically reduces status meetings and "quick questions" by making knowledge queryable 24/7.
-                          </li>
-                        </ul>
+                        <>
+                          <p className="mb-4">
+                            <strong>Solves the "Telephone Game" of Context:</strong> Consider a leadership call with 50 people. Without a Context Artefact, every recipient has to take the PowerPoint slide, capture their own version of what they heard, and put it into a prompt to understand the impact.
+                          </p>
+                          <p className="mb-4">
+                            This leads to 50 different interpretations. Context Core ensures consistency across the organisation, as everyone builds from the description provided by the <em>original holder</em> of the context.
+                          </p>
+                          <p>
+                            It saves massive duplication of effort and ensures that the AI is grounded in the source of truth, not a translation of a translation.
+                          </p>
+                        </>
                       ),
                     },
                     {
@@ -717,17 +723,17 @@ export default function Home() {
                     {
                       label: "Why it matters",
                       content: (
-                        <ul className="list-disc pl-4 space-y-2">
-                          <li>
-                            <strong>Quality & Speed:</strong> Shifts coordination from a reactive burden to a proactive setup, allowing teams to work in parallel from day one.
-                          </li>
-                          <li>
-                            <strong>AI Adoption:</strong> Ensures context is captured <em>before</em> work starts, which is the only time AI can use it to help you build.
-                          </li>
-                          <li>
-                            <strong>Efficiency:</strong> Replaces the "meeting to plan the meeting" with high-value problem solving sessions.
-                          </li>
-                        </ul>
+                        <>
+                          <p className="mb-4">
+                            <strong>Solves the "Coordination Tax":</strong> Currently, we pay a high tax to coordinate work—endless kickoff meetings, email chains, and "syncs" just to get started.
+                          </p>
+                          <p className="mb-4">
+                            By "Priming" stakeholders with context <em>before</em> they engage, you remove the friction of getting started. It allows Risk, Compliance, and Engineering to work in parallel from day one.
+                          </p>
+                          <p>
+                            It turns coordination from a reactive bottleneck (waiting for a meeting) into a proactive platform for speed.
+                          </p>
+                        </>
                       ),
                     },
                     {
