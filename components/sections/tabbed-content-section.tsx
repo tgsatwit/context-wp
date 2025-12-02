@@ -124,7 +124,7 @@ export function TabbedContentSection({
                                             : "invisible translate-x-8 opacity-0"
                                     )}
                                 >
-                                    <div className="prose prose-invert max-w-none text-lg leading-relaxed text-foreground/80">
+                                    <div className="prose prose-invert max-w-none text-base leading-relaxed text-foreground/80">
                                         {tab.content}
                                     </div>
                                 </div>

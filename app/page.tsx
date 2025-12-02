@@ -267,7 +267,7 @@ export default function Home() {
                 and I’ll show you the output.
               </span>
             </h1>
-            <p className="mb-8 max-w-2xl animate-in fade-in slide-in-from-bottom-4 text-lg leading-relaxed text-foreground/90 duration-1000 delay-200 md:text-xl">
+            <p className="mb-8 max-w-2xl animate-in fade-in slide-in-from-bottom-4 text-base leading-relaxed text-foreground/90 duration-1000 delay-200 md:text-lg">
               <span className="text-pretty">
                 Why AI demands we rethink how we work. The bottleneck isn’t AI’s ability to do tasks. It’s our ability to give AI the context it needs to do them well.
               </span>
@@ -314,12 +314,14 @@ export default function Home() {
             },
             {
               label: "The Solution",
-              imageSrc: "bg-gradient-to-br from-blue-900/20 to-black",
+              // TODO: Generate image: context-solution-framework.png
+              // Prompt: Abstract 3D visualization of a framework structure. Building blocks of context. Organized, stable, foundational. Glowing blue elements. Dark background. Minimalist. Represents 'The Solution'. 8k resolution.
+              imageSrc: "/structural-reality.png",
               imageAlt: "Visual: The Solution",
               content: (
                 <>
                   <p className="mb-4">
-                    The Context-First Framework is built on producing curated <strong>Context Artefacts</strong> by combining a structured approach to curating organisational context and changing our patterns of work to produce it.
+                    The Context-First Framework is built on producing curated <strong>Context Artefacts</strong> (think Claude skills, but for organisational context) by combining a structured approach to curating organisational context and changing our patterns of work to produce it.
                   </p>
                   <p>
                     It provides a practical pathway to solve the context flow problem, unlock experts, and build an organisation that learns and adapts at the speed of change.
@@ -329,7 +331,9 @@ export default function Home() {
             },
             {
               label: "The ROI",
-              imageSrc: "bg-gradient-to-br from-blue-900/20 to-black",
+              // TODO: Generate image: context-roi-graph.png
+              // Prompt: Abstract 3D chart showing exponential growth. Glowing blue line rising sharply. Dark background. Minimalist, financial, high tech. Represents ROI. 8k resolution.
+              imageSrc: "/ai-context-fuel.png",
               imageAlt: "Visual: The ROI",
               content: (
                 <p>
@@ -365,7 +369,9 @@ export default function Home() {
             },
             {
               label: "The Delivery Trap",
-              imageSrc: "bg-gradient-to-br from-blue-900/20 to-black",
+              // TODO: Generate image: delivery-trap-web.png
+              // Prompt: Abstract 3D visualization of a tangled web or knot. Chaos, complexity, entrapment. Dark, moody, blue and grey. Represents 'The Delivery Trap'.
+              imageSrc: "/context-flow-problem.png",
               imageAlt: "Visual: The Delivery Trap",
               content: (
                 <>
@@ -383,7 +389,9 @@ export default function Home() {
             },
             {
               label: "Strategy Refresh Example",
-              imageSrc: "bg-gradient-to-br from-blue-900/20 to-black",
+              // TODO: Generate image: strategy-fragmentation.png
+              // Prompt: Abstract 3D visualization of a fragmented document or puzzle. Disconnected pieces. Searching for alignment. Dark background. Blue accents.
+              imageSrc: "/structural-reality.png",
               imageAlt: "Visual: Strategy Refresh",
               content: (
                 <>
@@ -414,64 +422,91 @@ export default function Home() {
               content: (
                 <>
                   <p className="mb-4">
-                    We are investing in AI tools to help us accelerate. But the bottleneck isn’t AI’s ability to do tasks. It’s our ability to give AI the context it needs to do them well.
+                    We are investing in AI tools to help us accelerate. The promise is compelling: AI that can write code, analyse data, draft documents, identify risks. These capabilities will naturally continue to improve.
                   </p>
                   <p className="mb-4">
-                    Think about how we actually spend time today. Writing the code, creating the analysis, drafting the document often takes less time than gathering the context needed to do it right. We spend hours in meetings clarifying requirements, days waiting for answers about constraints.
+                    But the bottleneck isn’t AI’s ability to do tasks. It’s our ability to give AI the context it needs to do them well.
+                  </p>
+                  <p className="mb-4">
+                    Think about how we actually spend time today. Writing the code, creating the analysis, drafting the document often takes less time than gathering the context needed to do it right. We spend hours in meetings clarifying requirements, days waiting for answers about constraints, weeks iterating because critical information surfaced too late.
+                  </p>
+                  <p className="mb-4">
+                    AI capabilities for task execution will improve on their own. But without changing how we organise and share context, that improved capability hits a ceiling. If AI can’t access the context it needs, it will produce faster wrong answers.
                   </p>
                   <p>
-                    If AI can’t access the context it needs, it will produce faster wrong answers. Context availability, not execution capability, becomes the limiting factor for AI value.
+                    This is the fundamental shift: context availability, not execution capability, becomes the limiting factor for AI value.
                   </p>
                 </>
               ),
             },
             {
               label: "Adoption Paradox",
-              imageSrc: "bg-gradient-to-br from-blue-900/20 to-black",
+              // TODO: Generate image: adoption-paradox-key.png
+              // Prompt: Abstract 3D visualization of a key that doesn't fit a lock, or a puzzle piece that doesn't fit. Friction. Dark background. Blue glowing edges.
+              imageSrc: "/context-flow-problem.png",
               imageAlt: "Visual: Adoption Paradox",
               content: (
                 <>
                   <p className="mb-4">
-                    Much of the excitement in AI adoption has centered on “finding use cases”. This energy is positive, but these tools are not magic; they are reasoning engines that require fuel—context—to operate effectively.
+                    Much of the excitement in AI adoption has centered on “finding use cases”: identifying specific problems where AI might help, building agents, and rolling them out. This energy is positive, but in the rush to build, non-experts have perhaps gotten a little carried away without fully understanding the fundamentals of how these tools work.
+                  </p>
+                  <p className="mb-4">
+                    These tools are not magic; they are reasoning engines that require fuel, context, to operate effectively.
                   </p>
                   <p className="mb-4">
                     If our people can’t use AI effectively to solve their own daily work problems because they lack the context to make AI useful, how will they possibly create AI solutions that help our customers?
                   </p>
                   <p>
-                    The path to transformative AI isn’t just top-down use case hunting. It’s bottom-up enablement: give people the context infrastructure so AI becomes genuinely useful in their own work.
+                    The path to transformative AI isn’t just top-down use case hunting. It’s bottom-up enablement: give people the context infrastructure so AI becomes genuinely useful in their own work. When they experience AI helping them deliver higher quality faster because it has the right context, they’ll naturally identify opportunities to apply that same approach to customer problems.
                   </p>
                 </>
               ),
             },
             {
               label: "The Agile 'Bug'",
-              imageSrc: "bg-gradient-to-br from-blue-900/20 to-black",
+              // TODO: Generate image: agile-bug-glitch.png
+              // Prompt: Abstract 3D visualization of a glitch or bug in a digital system. Matrix-like code rain but distorted. Dark background. Blue and white.
+              imageSrc: "/structural-reality.png",
               imageAlt: "Visual: The Agile Bug",
               content: (
                 <>
                   <p className="mb-4">
-                    Traditional Agile relies on <strong>tacit knowledge</strong> and <strong>conversation</strong>. We minimise documentation because we assume we can "set up a quick meeting".
+                    There is a fundamental tension between how we have been trained to work and what AI requires to function. The Agile Manifesto’s "Working software over comprehensive documentation" was a necessary correction to Waterfall, but in the age of AI, this mindset has become antithetical to progress.
                   </p>
                   <p className="mb-4">
-                    <strong>This approach is fatal for AI adoption.</strong> AI cannot "set up a meeting" to clarify a requirement. It requires explicit, structured context <em>before</em> the work starts.
+                    Traditional Agile relies on <strong>tacit knowledge</strong> and <strong>conversation</strong>. We minimise documentation because we assume we can "set up a quick meeting" or "jump on a standup" to fill the gaps. The documentation that <em>does</em> exist is almost always created post-hoc, after the work is done.
+                  </p>
+                  <p className="mb-4">
+                    <strong>This approach is fatal for AI adoption.</strong>
+                  </p>
+                  <p className="mb-4">
+                    AI cannot "set up a meeting" to clarify a requirement. It cannot read your mind during a standup. It requires explicit, structured context <em>before</em> the work starts. If the context is trapped in your head, the AI is useless.
                   </p>
                   <p>
-                    By clinging to the Agile habit of "docs last", we are actively blocking our ability to leverage these tools.
+                    By clinging to the Agile habit of "docs last" (or docs never), we are actively blocking our ability to leverage these tools.
                   </p>
                 </>
               ),
             },
             {
               label: "Tacit vs Explicit",
-              imageSrc: "bg-gradient-to-br from-blue-900/20 to-black",
+              // TODO: Generate image: tacit-explicit-comparison.png
+              // Prompt: Abstract 3D comparison. One side blurry/foggy (Tacit), one side sharp/crystal clear (Explicit). Dark background. Blue lighting.
+              imageSrc: "/ai-context-fuel.png",
               imageAlt: "Visual: Tacit vs Explicit",
               content: (
                 <>
                   <p className="mb-4">
-                    Without explicit guidance, AI executes 80% of the task perfectly but fails on the critical last 20% because that final mile relies on tacit knowledge.
+                    Without explicit guidance, AI executes 80% of the task perfectly but fails on the critical last 20% because that final mile relies on tacit knowledge. Here’s where Agile’s preference for implicit communication has become a liability.
                   </p>
                   <p className="mb-4">
                     AI forces us to make our standards explicit. If you give AI only the ‘what’ from the PowerPoint, it will make up the why. It cannot guess your quality criteria; they must be concrete enough to verify.
+                  </p>
+                  <p className="mb-4">
+                    This is why the economics of documentation have flipped. Before AI, writing extensive documentation was expensive and often wasteful. Now, creating structured <strong>Context Artefacts</strong> is cheap (thanks to AI assistance) and essential.
+                  </p>
+                  <p className="mb-4">
+                    We need to move from unstructured "documents" (slide decks, loose wiki pages) to structured <strong>Context Artefacts</strong> designed for consumption. These artefacts translate tacit "hero" knowledge into the explicit standards AI needs to be reliable.
                   </p>
                   <p>
                     In simple terms: Bad context + AI = Bad output + Low trust. Good context + AI = High-quality output + High adoption.
@@ -489,71 +524,117 @@ export default function Home() {
           tabs={[
             {
               label: "Overview",
-              imageSrc: "bg-gradient-to-br from-blue-900/20 to-black",
+              // TODO: Generate image: solution-overview-pillars.png
+              // Prompt: Abstract 3D visualization of three strong pillars supporting a structure. Represents 'Three Pillars'. Glowing blue. Dark background.
+              imageSrc: "/structural-reality.png",
               imageAlt: "Visual: Overview",
               content: (
                 <>
                   <p className="mb-4">
-                    We must change our approach. Instead of using collaboration to find context, we need to create context to enable collaboration. This new approach is built on producing, managing, and leveraging <strong>Context Artefacts</strong>.
+                    We must change our approach. Instead of using collaboration to find context, we need to create context to enable collaboration. This new approach is built on producing, managing, and leveraging <strong>Context Artefacts</strong>: high-leverage, structured context documents that are readable by humans but built for AI, and are used as context seed into prompts or agents.
                   </p>
                   <p>
-                    This new operating model is built on three pillars: Context Cascade, Context Core, and Changing Our Patterns of Work.
+                    This new operating model is built on three pillars that describe how these artefacts are created, managed, and used:
                   </p>
+                  <ol className="list-decimal pl-4 space-y-2 mt-4">
+                    <li><strong>Context Cascade:</strong> The process of distilling and flowing Context Artefacts down through the organisation.</li>
+                    <li><strong>Context Core:</strong> The practice of maintaining high-leverage Context Artefacts at a local level, moving knowledge from people’s heads into these shared, queryable assets.</li>
+                    <li><strong>Changing Our Patterns of Work:</strong> The new patterns of work that are oriented around the creation, distribution and use of Context Artefacts.</li>
+                  </ol>
                 </>
               ),
             },
             {
               label: "1. Context Cascade",
-              imageSrc: "bg-gradient-to-br from-blue-900/20 to-black",
+              // TODO: Generate image: context-cascade-waterfall.png
+              // Prompt: Abstract 3D visualization of a waterfall of data/light. Flowing downwards through levels. Hierarchical. Glowing blue. Dark background.
+              imageSrc: "/context-flow-problem.png",
               imageAlt: "Visual: Context Cascade",
               content: (
                 <>
                   <p className="mb-4">
-                    Inspired by cascading style sheets, Context Cascade establishes a hierarchy of shared context that flows throughout the organisation. Each level inherits context from the levels higher.
+                    Inspired by cascading style sheets in software, Context Cascade establishes a hierarchy of shared context that flows throughout the organisation. Each level inherits context from the levels higher.
                   </p>
+                  <p className="mb-4">
+                    Strategy Forums, Town Halls and Leadership calls would of course remain the cornerstone, but supplementing these and the presentations, structured <strong>Context Artefacts</strong> would be distributed:
+                  </p>
+                  <ul className="list-disc pl-4 space-y-2 text-base mb-4">
+                    <li>
+                      <strong>Group level:</strong> This might be one or many artefacts serving as the primary source of truth. It is a living document that evolves quarter-to-quarter, structured into two layers:
+                      <ul className="list-disc pl-4 mt-2 space-y-1">
+                        <li><strong>The Fixed Components:</strong> Enduring elements like Strategy, Vision, Values, and Leadership Principles.</li>
+                        <li><strong>The Variable Components:</strong> The specific priorities for the upcoming quarter and reflections on the last. This explicitly captures the narrative often lost in leadership calls, the rationale, the "why now," and the nuance, so it can be reused.</li>
+                      </ul>
+                    </li>
+                    <li>
+                      <strong>Division and Domain level:</strong> Similar structure, but more detail for that division (Tech, Operations, Retail, Business Banking, Institutional etc) and domain (the next level down) showing how they align to and extend the Group context.
+                    </li>
+                    <li>
+                      <strong>Team level:</strong> Teams can then query these documents with AI to understand implications for their specific work.
+                    </li>
+                  </ul>
+                  <p className="mb-2 font-bold">How it works:</p>
                   <ul className="list-disc pl-4 space-y-2 text-base">
-                    <li><strong>Group level:</strong> Enduring elements like Strategy, Vision, Values.</li>
-                    <li><strong>Division/Domain level:</strong> Specific detail showing alignment to Group context.</li>
-                    <li><strong>Team level:</strong> Teams query these documents with AI to understand implications.</li>
+                    <li><strong>Shared context flows down:</strong> The organisation’s strategy, rationale, priorities, and guardrails cascade downward (as Context Artefacts) from the organisation to divisions to teams.</li>
+                    <li><strong>Local context extends and refines:</strong> Each team or initiative extends the context locally by adding feature-specific details to their own Context Artefacts: intended outcomes, acceptance criteria, evidence required.</li>
+                    <li><strong>Consistency consolidates upward:</strong> Because every team’s context is structured, insights and updates can roll back up the chain with minimal effort.</li>
                   </ul>
                 </>
               ),
             },
             {
               label: "2. Context Core",
-              imageSrc: "bg-gradient-to-br from-blue-900/20 to-black",
+              // TODO: Generate image: context-core-hub.png
+              // Prompt: Abstract 3D visualization of a central hub or reactor. Pulsing with energy/data. Connected to everything. Glowing blue core. Dark background.
+              imageSrc: "/ai-context-fuel.png",
               imageAlt: "Visual: Context Core",
               content: (
                 <>
                   <p className="mb-4">
-                    The operational hub: a team’s knowledge hub for its Context Artefacts, serving as a living, queryable repository.
+                    Thinking of the organisation as a graph, at each ‘node’ of the cascade, context needs to be made operational and accessible. The Context Core is that operational hub: a team’s knowledge hub for its <strong>Context Artefacts</strong>, serving as a living, queryable repository.
                   </p>
                   <p className="mb-4">
-                    A foundational set of Context Artefacts might contain: Vision/Purpose, Annual/Quarterly Priorities, Decision Log, Dependencies, and Explicit Definition of Done.
+                    Ideally, you should think about starting with your highest leverage artifacts at the core as foundational and build out knowledge from there.
                   </p>
+                  <p className="mb-2 font-medium">A foundational set of <strong>Context Artefacts</strong> for a team might contain:</p>
+                  <ul className="list-disc pl-4 space-y-1 mb-4">
+                    <li><strong>Vision/Purpose:</strong> The fundamental purpose, problem, and intended outcomes for a domain, team or product; the core strategic pillars that the work aligns with; the long-term priorities, governing policies, brand guidelines, and risk guardrails.</li>
+                    <li><strong>Annual/Quarterly Priorities (The "Variable"):</strong> The specific "why-now" rationale, key OKRs for the period, and success measures.</li>
+                    <li><strong>Reflections / Decision Log:</strong> A running log of key decisions, learnings from past cycles, and a "what changed" log to keep the artefact alive.</li>
+                    <li><strong>Dependencies:</strong> Key dependencies, interfaces, and owners (teams or systems).</li>
+                    <li><strong>Explicit Definition of Done:</strong> What “done” looks like. This is where “instinct” becomes a concrete, verifiable standard.</li>
+                  </ul>
                   <p>
-                    Critically, the Context Core is where work happens first. “Resolve it in the hub before calling a meeting.”
+                    Critically, the Context Core is where work happens first. A standing policy in context-first teams is: <strong>“resolve it in the hub before calling a meeting.”</strong> This habit ensures that the Context Artefacts stay complete and current, and it dramatically reduces the need for repetitive status meetings and probability of adhoc meetings to provide updates or drip feed information.
                   </p>
                 </>
               ),
             },
             {
               label: "3. Patterns of Work",
-              imageSrc: "bg-gradient-to-br from-blue-900/20 to-black",
+              // TODO: Generate image: patterns-of-work-flow.png
+              // Prompt: Abstract 3D visualization of a rhythmic pattern or wave. Synchronized, orderly flow. Dark background. Blue lines.
+              imageSrc: "/structural-reality.png",
               imageAlt: "Visual: Patterns of Work",
               content: (
                 <>
                   <p className="mb-4">
-                    The shift from “docs-last” to context-first execution.
+                    This pillar is about when and how you produce <strong>Context Artefacts</strong>. It represents the shift from “docs-last” to context-first execution.
                   </p>
-                  <ul className="list-disc pl-4 space-y-2">
+                  <p className="mb-4">
+                    The new pattern has two main steps: <strong>Pause</strong> and <strong>Prime</strong>:
+                  </p>
+                  <ul className="list-disc pl-4 space-y-4">
                     <li>
-                      <strong>Pause:</strong> Take a short, focused pause before jumping into building. Use this time to write down the “why,” the “what,” and the guiding principles into an initial Context Artefact.
+                      <strong>Pause:</strong> Take a short, focused pause before jumping into building. Use this time to write down the “why,” the “what,” and the guiding principles <em>into an initial Context Artefact</em>. This is not waterfall planning; it is the minimal critical act of making your intent explicit. This step prevents the common trap of automating an existing, inefficient process rather than pausing to reimagine the work itself. It’s where the context holder discharges their responsibility of capturing context.
                     </li>
                     <li>
-                      <strong>Prime:</strong> Immediately publish the seed Context Artefact to all stakeholders and systems. So all that are involved get this context from day zero.
+                      <strong>Prime:</strong> Immediately publish the seed <strong>Context Artefact</strong> to all stakeholders and systems. So all that are involved in the process of delivering this strategy, product or feature (e.g. Risk, Compliance, Change, and Engineering) all get this context from day zero.
                     </li>
                   </ul>
+                  <p className="mt-4">
+                    By focusing on 'Pause and Prime,' we create a better mechanism to share context upfront. This structured sharing is what <em>allows</em> teams to work in parallel, replacing the need for endless kickoff meetings and email chains just to start work. It shifts the coordination tax from a reactive burden to a proactive, low-friction setup.
+                  </p>
                 </>
               ),
             },
@@ -567,7 +648,9 @@ export default function Home() {
           tabs={[
             {
               label: "The ROI",
-              imageSrc: "bg-gradient-to-br from-blue-900/20 to-black",
+              // TODO: Generate image: business-roi-exponential.png
+              // Prompt: Abstract 3D visualization of a blooming flower or expanding network. Growth, positive outcome. Glowing blue. Dark background. (Alternative to previous ROI).
+              imageSrc: "/ai-context-fuel.png",
               imageAlt: "Visual: The ROI",
               content: (
                 <>
@@ -601,7 +684,9 @@ export default function Home() {
             },
             {
               label: "Expected Benefits",
-              imageSrc: "bg-gradient-to-br from-blue-900/20 to-black",
+              // TODO: Generate image: benefits-network-growth.png
+              // Prompt: Abstract 3D visualization of a network connecting and lighting up. Speed, efficiency. Glowing blue. Dark background.
+              imageSrc: "/structural-reality.png",
               imageAlt: "Visual: Expected Benefits",
               content: (
                 <ul className="list-disc pl-4 space-y-2">
@@ -615,7 +700,9 @@ export default function Home() {
             },
             {
               label: "How Work Changes",
-              imageSrc: "bg-gradient-to-br from-blue-900/20 to-black",
+              // TODO: Generate image: work-transformation-morph.png
+              // Prompt: Abstract 3D visualization of a transformation. Morphing from chaotic to organized. Dark background. Blue light.
+              imageSrc: "/context-flow-problem.png",
               imageAlt: "Visual: How Work Changes",
               content: (
                 <div className="space-y-4">
@@ -649,7 +736,9 @@ export default function Home() {
           tabs={[
             {
               label: "Immediate Start",
-              imageSrc: "bg-gradient-to-br from-blue-900/20 to-black",
+              // TODO: Generate image: start-ignition-spark.png
+              // Prompt: Abstract 3D visualization of a start button or ignition. Spark of energy. Beginning. Glowing blue. Dark background.
+              imageSrc: "/ai-context-fuel.png",
               imageAlt: "Visual: Immediate Start",
               content: (
                 <>
@@ -664,7 +753,9 @@ export default function Home() {
             },
             {
               label: "Context Tiers",
-              imageSrc: "bg-gradient-to-br from-blue-900/20 to-black",
+              // TODO: Generate image: context-tiers-pyramid.png
+              // Prompt: Abstract 3D visualization of a layered pyramid or tiered structure. Levels of importance. Glowing blue edges. Dark background.
+              imageSrc: "/structural-reality.png",
               imageAlt: "Visual: Context Tiers",
               content: (
                 <>
@@ -682,7 +773,9 @@ export default function Home() {
             },
             {
               label: "Quarterly Memo",
-              imageSrc: "bg-gradient-to-br from-blue-900/20 to-black",
+              // TODO: Generate image: quarterly-memo-tablet.png
+              // Prompt: Abstract 3D visualization of a digital document or tablet. Glowing with information. Important, central. Dark background. Blue accents.
+              imageSrc: "/context-flow-problem.png",
               imageAlt: "Visual: Quarterly Memo",
               content: (
                 <>
@@ -697,7 +790,9 @@ export default function Home() {
             },
             {
               label: "Addressing Objections",
-              imageSrc: "bg-gradient-to-br from-blue-900/20 to-black",
+              // TODO: Generate image: objections-shield-dissolve.png
+              // Prompt: Abstract 3D visualization of a shield or barrier being dissolved. Overcoming resistance. Dark background. Blue light.
+              imageSrc: "/ai-context-fuel.png",
               imageAlt: "Visual: Addressing Objections",
               content: (
                 <div className="space-y-4">
