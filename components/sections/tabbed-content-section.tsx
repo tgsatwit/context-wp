@@ -34,7 +34,7 @@ export function TabbedContentSection({
         <section
             ref={ref}
             className={cn(
-                "flex min-h-screen w-screen shrink-0 snap-start flex-col overflow-y-auto px-6 py-24 md:items-center md:justify-center md:overflow-hidden md:px-12 md:py-0 lg:px-16",
+                "flex min-h-screen w-full md:w-screen shrink-0 snap-start flex-col px-6 py-24 md:items-center md:justify-center md:overflow-y-auto md:overflow-x-hidden md:px-12 md:py-0 lg:px-16",
                 className
             )}
         >
@@ -113,15 +113,15 @@ export function TabbedContentSection({
                         </div>
 
                         {/* Tab Content */}
-                        <div className="relative min-h-[300px]">
+                        <div className="grid items-start">
                             {tabs.map((tab, index) => (
                                 <div
                                     key={index}
                                     className={cn(
-                                        "absolute inset-0 transition-all duration-500",
+                                        "col-start-1 row-start-1 transition-all duration-500",
                                         activeTab === index
-                                            ? "visible translate-x-0 opacity-100"
-                                            : "invisible translate-x-8 opacity-0"
+                                            ? "z-10 opacity-100 translate-x-0"
+                                            : "z-0 opacity-0 translate-x-8 pointer-events-none"
                                     )}
                                 >
                                     <div className="prose prose-invert max-w-none text-base leading-relaxed text-foreground/80">

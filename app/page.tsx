@@ -9,6 +9,7 @@ import { TabbedContentSection } from "@/components/sections/tabbed-content-secti
 import { FrameworkSection } from "@/components/sections/framework-section"
 import { SubTabs } from "@/components/ui/sub-tabs"
 import { MagneticButton } from "@/components/magnetic-button"
+import { MobileNav } from "@/components/mobile-nav"
 import { useRef, useEffect, useState } from "react"
 
 export default function Home() {
@@ -63,24 +64,56 @@ export default function Home() {
   }, [])
 
   const scrollToSection = (index: number) => {
-    if (scrollContainerRef.current && !isScrollingRef.current) {
-      isScrollingRef.current = true
-      const sectionWidth = scrollContainerRef.current.offsetWidth
-      scrollContainerRef.current.scrollTo({
-        left: sectionWidth * index,
-        behavior: "smooth",
-      })
-      setCurrentSection(index)
+    if (scrollContainerRef.current) {
+      // Check if we are on mobile (vertical layout) or desktop (horizontal layout)
+      const isMobile = window.innerWidth < 768 // md breakpoint
 
-      setTimeout(() => {
-        isScrollingRef.current = false
-      }, 700)
+      if (isMobile) {
+        const container = scrollContainerRef.current
+        const sectionElement = container.children[index] as HTMLElement
+        if (sectionElement) {
+          const top = sectionElement.offsetTop
+          window.scrollTo({
+            top: top, // We might need to scroll the window or the container depending on setup. 
+            // In this refactor, the container is the main scroller on desktop, but on mobile we might want window scroll or container scroll.
+            // Let's stick to container scroll for consistency if possible, but usually vertical scroll is window.
+            // Actually, if we change the container to be vertical flex, we can just scroll the container if it's h-screen overflow-y-auto.
+            // BUT, standard mobile behavior is usually window scroll. 
+            // Let's try to keep the container as the scroller for now to minimize disruption, just changing direction.
+            behavior: "smooth"
+          })
+          // If we use window scroll, we need to scroll the window.
+          // If we use container scroll (h-screen overflow-y-auto), we scroll the container.
+          // Let's assume we keep the container as the scrollable element for now.
+          container.scrollTo({
+            top: sectionElement.offsetTop,
+            behavior: "smooth"
+          })
+        }
+      } else {
+        if (!isScrollingRef.current) {
+          isScrollingRef.current = true
+          const sectionWidth = scrollContainerRef.current.offsetWidth
+          scrollContainerRef.current.scrollTo({
+            left: sectionWidth * index,
+            behavior: "smooth",
+          })
+
+          setTimeout(() => {
+            isScrollingRef.current = false
+          }, 700)
+        }
+      }
+      setCurrentSection(index)
     }
   }
 
   useEffect(() => {
     const handleWheel = (e: WheelEvent) => {
       if (!scrollContainerRef.current || isScrollingRef.current) return
+
+      // Only apply custom horizontal scroll logic on desktop
+      if (window.innerWidth < 768) return
 
       const container = scrollContainerRef.current
       const currentSectionElement = container.children[currentSection] as HTMLElement
@@ -143,12 +176,44 @@ export default function Home() {
           return
         }
 
-        const sectionWidth = scrollContainerRef.current.offsetWidth
-        const scrollLeft = scrollContainerRef.current.scrollLeft
-        const newSection = Math.round(scrollLeft / sectionWidth)
+        const isMobile = window.innerWidth < 768
 
-        if (newSection !== currentSection && newSection >= 0 && newSection <= sections.length - 1) {
-          setCurrentSection(newSection)
+        if (isMobile) {
+          // Vertical scroll tracking
+          // This is a bit complex because sections might have different heights.
+          // Simple IntersectionObserver might be better, but let's try basic offset tracking.
+          const container = scrollContainerRef.current
+          const scrollTop = container.scrollTop
+          const containerHeight = container.clientHeight // or window height
+
+          // Find which section is most visible
+          let maxVisibility = 0
+          let bestSection = currentSection
+
+          Array.from(container.children).forEach((child, index) => {
+            const element = child as HTMLElement
+            const rect = element.getBoundingClientRect()
+
+            // Calculate intersection with viewport
+            const visibleHeight = Math.min(rect.bottom, window.innerHeight) - Math.max(rect.top, 0)
+            if (visibleHeight > maxVisibility) {
+              maxVisibility = visibleHeight
+              bestSection = index
+            }
+          })
+
+          if (bestSection !== currentSection) {
+            setCurrentSection(bestSection)
+          }
+
+        } else {
+          const sectionWidth = scrollContainerRef.current.offsetWidth
+          const scrollLeft = scrollContainerRef.current.scrollLeft
+          const newSection = Math.round(scrollLeft / sectionWidth)
+
+          if (newSection !== currentSection && newSection >= 0 && newSection <= sections.length - 1) {
+            setCurrentSection(newSection)
+          }
         }
 
         scrollThrottleRef.current = undefined
@@ -218,14 +283,21 @@ export default function Home() {
             mediumY={40}
             fineX={40}
             fineY={40}
+
           />
 
         </Shader>
         <div className="absolute inset-0 bg-black/20" />
       </div>
 
+      <MobileNav
+        sections={sections}
+        currentSection={currentSection}
+        onSectionSelect={scrollToSection}
+      />
+
       <nav
-        className={`fixed left-0 right-0 top-0 z-50 flex items-center justify-center px-6 py-6 transition-opacity duration-700 md:px-12 ${isLoaded ? "opacity-100" : "opacity-0"
+        className={`fixed left-0 right-0 top-0 z-50 hidden items-center justify-center px-6 py-6 transition-opacity duration-700 md:flex md:px-12 ${isLoaded ? "opacity-100" : "opacity-0"
           }`}
       >
 
@@ -253,12 +325,12 @@ export default function Home() {
       <div
         ref={scrollContainerRef}
         data-scroll-container
-        className={`relative z-10 flex h-screen snap-x snap-mandatory overflow-x-auto overflow-y-hidden transition-opacity duration-700 ${isLoaded ? "opacity-100" : "opacity-0"
+        className={`relative z-10 flex h-screen w-full flex-col overflow-y-auto overflow-x-hidden md:flex-row md:snap-x md:snap-mandatory md:overflow-x-auto md:overflow-y-hidden transition-opacity duration-700 ${isLoaded ? "opacity-100" : "opacity-0"
           }`}
         style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
       >
         {/* Hero Section */}
-        <section className="flex h-screen w-screen shrink-0 snap-start flex-col overflow-y-auto px-6 pb-16 pt-24 md:min-h-screen md:justify-end md:overflow-hidden md:px-12 md:pb-24">
+        <section className="flex min-h-screen w-full shrink-0 flex-col justify-center px-6 pb-16 pt-24 md:h-screen md:w-screen md:snap-start md:justify-end md:overflow-hidden md:px-12 md:pb-24">
           <div className="max-w-4xl">
             <div className="mb-4 inline-block animate-in fade-in slide-in-from-bottom-4 rounded-full border border-foreground/20 bg-foreground/15 px-4 py-1.5 backdrop-blur-md duration-700">
               <p className="font-mono text-xs text-foreground/90">The Context-First Organisation</p>
@@ -282,7 +354,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-in fade-in duration-1000 delay-500">
+          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-in fade-in duration-1000 delay-500 hidden md:block">
             <div className="flex items-center gap-2">
               <p className="font-mono text-xs text-foreground/80">Scroll to explore</p>
               <div className="flex h-6 w-12 items-center justify-center rounded-full border border-foreground/20 bg-foreground/15 backdrop-blur-md">

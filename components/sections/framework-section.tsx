@@ -29,7 +29,7 @@ export function FrameworkSection({
         <section
             ref={ref}
             className={cn(
-                "flex min-h-screen w-screen shrink-0 snap-start flex-col overflow-y-auto px-6 py-24 md:items-center md:justify-center md:overflow-hidden md:px-12 md:py-0 lg:px-16",
+                "flex min-h-screen w-full md:w-screen shrink-0 snap-start flex-col px-6 py-24 md:items-center md:justify-center md:overflow-y-auto md:overflow-x-hidden md:px-12 md:py-0 lg:px-16",
                 className
             )}
         >
@@ -58,7 +58,7 @@ export function FrameworkSection({
                             isVisible ? "translate-y-0 opacity-100" : "translate-y-12 opacity-0"
                         )}
                     >
-                        <div className="flex flex-row overflow-x-auto pb-4 md:flex-col md:overflow-visible md:pb-0 gap-2">
+                        <div className="flex flex-row flex-wrap pb-4 md:flex-col md:flex-nowrap md:pb-0 gap-2">
                             {tabs.map((tab, index) => (
                                 <button
                                     key={index}
@@ -83,15 +83,27 @@ export function FrameworkSection({
                             isVisible ? "translate-y-0 opacity-100" : "translate-y-12 opacity-0"
                         )}
                     >
-                        <div className="relative min-h-[400px]">
+                        <div className="grid items-start">
                             {tabs.map((tab, index) => (
                                 <div
                                     key={index}
                                     className={cn(
-                                        "absolute inset-0 transition-all duration-500",
+                                        "col-start-1 row-start-1 transition-all duration-500",
                                         activeTab === index
-                                            ? "visible translate-x-0 opacity-100 relative"
-                                            : "invisible translate-x-8 opacity-0 absolute"
+                                            ? "z-10 opacity-100 translate-x-0 relative"
+                                            : "z-0 opacity-0 translate-x-8 pointer-events-none absolute" // Keep absolute for hidden items if we want to avoid them taking up space? 
+                                        // Actually, if we want the container to be as tall as the TALLEST item, we keep them all relative (or grid stack).
+                                        // If we want it to be as tall as the CURRENT item, we need to hide the others from flow.
+                                        // Grid stack does NOT hide from flow, it takes max height.
+                                        // To take current height, we can use 'hidden' for inactive, but that kills transition.
+                                        // Or we can use the grid stack but ensure inactive ones don't contribute to height? No, grid cell is max of all.
+                                        // Wait, if we want smooth transition of height, that's hard with just CSS.
+                                        // But 'max height' is probably fine/better than 'clipped'.
+                                        // Let's stick with grid stack (max height) for now as it's robust.
+                                        // Actually, if one tab is very long and others short, it will leave empty space.
+                                        // Maybe we should just use 'display: none' after transition?
+                                        // Or just let it be max height.
+                                        // Let's try max height first.
                                     )}
                                 >
                                     <div className="prose prose-invert max-w-none text-base leading-relaxed text-foreground/80">
