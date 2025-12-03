@@ -46,6 +46,28 @@ This is the context problem in practice. Critical knowledge exists but is fragme
 
 This example is at one end of the context flow spectrum, a strategic shift communicated from senior leaders to people leaders, but this pattern can be seen across the organisation for everyday work.
 
+## Building on This: The Quarterly Planning Cycle
+
+The strategy refresh is a periodic event, but the same pattern plays out every quarter through the planning cycle. Group leader calls. Divisional town halls. Organisation-wide town halls. Each grounded in strategy, but also reflecting on achievements from the previous quarter, examining what could have been done differently, and assessing how the current operating context shapes priorities for the quarter ahead.
+
+These sessions are genuinely valuable. You receive the full context: the rationale, the trade-offs, the nuance. They equip you with the talking points to cascade direction to your team. The problem isn't the quality of what's communicated; it's the form.
+
+Everything is delivered verbally, supported by a PowerPoint with dot points. When the session ends, it becomes the responsibility of every recipient to interpret what it means for their team and pass it on. If you want to answer the question "what does this mean for my role and my team?", you must document all that context yourself.
+
+This has compounding implications:
+
+**Exponential duplication of effort.** There are far more recipients than publishers. If a hundred leaders attend a quarterly call, and each needs to synthesise that context into a form they can use with AI, that's a hundred people doing the same translation work. The context holder does the work once; the recipients do it many times over.
+
+**Lossy transmission and variance.** Each recipient interprets and articulates the context differently. Some capture it well. Others miss key nuances or introduce errors. Across the organisation, you end up with significant variance in how the same strategic direction is understood and applied. The further from the source, the more the signal degrades.
+
+**A barrier to AI adoption.** Here's the critical point: to use AI tools to understand what this quarter's priorities mean for your team, you first need context in a form AI can consume. If you only have dot points from a slide and memories from a call, the barrier to using AI is that you must first write all of that context yourself. Most people won't. They'll either struggle through manually, or they'll feed AI incomplete context and get generic outputs that don't reflect the strategic reality.
+
+This is where the responsibility shift becomes tangible. Imagine if, following those sessions, you received not just the PowerPoint but a comprehensive document capturing the detailed context: the strategic rationale, the reflections, the priorities, the "why now."
+
+Armed with that artefact, you could immediately combine it with your own team's context—your purpose, your vision, your current work—and use AI to analyse what it means for you. The barrier disappears. Instead of spending hours reconstructing context from memory, you spend minutes getting actionable insights.
+
+The difference is stark: without the artefact, AI adoption is gated by each individual's willingness and ability to document context. With the artefact, AI becomes immediately useful, and the quality of output is consistent because everyone is working from the same source.
+
 ## Why AI Changes Everything
 
 We are investing in AI tools to help us accelerate. The promise is compelling: AI that can write code, analyse data, draft documents, identify risks. These capabilities will naturally continue to improve.
