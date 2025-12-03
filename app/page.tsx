@@ -667,6 +667,36 @@ export default function Home() {
               ),
             },
             {
+              label: "Quarterly Planning",
+              content: (
+                <div className="space-y-6">
+                  <p className="mb-4">
+                    How does this come together? Here is the workflow for a context-first quarterly planning cycle:
+                  </p>
+                  <div className="space-y-4">
+                    <div>
+                      <strong className="block text-lg text-foreground mb-1">1. The Inputs (Context Cascade)</strong>
+                      <p className="text-foreground/80">
+                        Leaders hold their usual town halls to share operating context and reflections. Crucially, <em>after</em> this, every delivery team receives a structured <strong>Context Artefact</strong> containing the Group, Division, and Domain context. No guessing required.
+                      </p>
+                    </div>
+                    <div>
+                      <strong className="block text-lg text-foreground mb-1">2. The Planning (BRP)</strong>
+                      <p className="text-foreground/80">
+                        Delivery teams combine this cascaded context with their own <strong>Persistent Team Context</strong> (who they are, their purpose). They use this combined clarity to plan and prioritize effectively during Big Room Planning (BRP).
+                      </p>
+                    </div>
+                    <div>
+                      <strong className="block text-lg text-foreground mb-1">3. The Outputs (Context Core)</strong>
+                      <p className="text-foreground/80">
+                        By the end of BRP, teams update their own local <strong>Context Artefacts</strong> (Quarterly Priorities, Value Links, Strategy Alignment). This becomes their foundational <strong>Context Core</strong> for the quarter—used to seed context for every feature and manage the backlog.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ),
+            },
+            {
               label: "Patterns of Work",
               content: (
                 <div className="space-y-6">
