@@ -488,6 +488,30 @@ export default function Home() {
                 </>
               ),
             },
+            {
+              label: "Quarterly Planning Cycle",
+              imageSrc: "/context-flow-problem.png",
+              imageAlt: "Visual: Quarterly Planning Cycle",
+              content: (
+                <>
+                  <p className="mb-4">
+                    The strategy refresh is periodic, but the same pattern plays out every quarter. Group leader calls. Divisional town halls. Organisation-wide town halls. Each grounded in strategy, but also reflecting on achievements, examining what could have been done differently, and assessing how the current context shapes priorities ahead.
+                  </p>
+                  <p className="mb-4">
+                    These sessions are genuinely valuable—you receive the full context, the rationale, the nuance. They equip you with talking points to cascade to your team. The problem isn't the quality of what's communicated; it's the form.
+                  </p>
+                  <p className="mb-4">
+                    Everything is delivered verbally, supported by a PowerPoint with dot points. When the session ends, every recipient must interpret what it means for their team and document it themselves.
+                  </p>
+                  <p className="mb-4">
+                    <strong>The compounding implications:</strong> Exponential duplication (100 leaders each doing the same translation work), lossy transmission creating variance across teams, and a barrier to AI adoption—you must write all that context yourself before AI becomes useful.
+                  </p>
+                  <p>
+                    Imagine instead receiving a comprehensive document post-session. You could immediately combine it with your team's context and use AI to analyse implications. The barrier disappears.
+                  </p>
+                </>
+              ),
+            },
           ]}
         />
 
