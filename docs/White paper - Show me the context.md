@@ -26,7 +26,7 @@ The critical knowledge isn’t in a system; it’s in people’s heads. Bottlene
 
 Our failing response is to add more people. When we need to speed up, we add more nodes to the bottleneck, which exponentially increases the connections and noise, compounding the problem (the birthday paradox).
 
-## Another Example: The Strategy Refresh
+### Example: The Strategy Refresh
 
 Earlier this year, we went through an organisational strategy refresh. Communicated through the typical mechanism: leadership forums, targeted sessions, presentations that gave our people the foundational understanding of the shift. When it was time to return to work and understand what this meant for our teams, we were left with a PowerPoint slide.
 
@@ -46,7 +46,7 @@ This is the context problem in practice. Critical knowledge exists but is fragme
 
 This example is at one end of the context flow spectrum, a strategic shift communicated from senior leaders to people leaders, but this pattern can be seen across the organisation for everyday work.
 
-## Building on This: The Quarterly Planning Cycle
+### Building on This: The Quarterly Planning Cycle
 
 The strategy refresh is a periodic event, but the same pattern plays out every quarter through the planning cycle. Group leader calls. Divisional town halls. Organisation-wide town halls. Each grounded in strategy, but also reflecting on achievements from the previous quarter, examining what could have been done differently, and assessing how the current operating context shapes priorities for the quarter ahead.
 
