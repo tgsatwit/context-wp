@@ -368,10 +368,10 @@ export default function Home() {
         >
           <div className="space-y-6 text-lg leading-relaxed text-foreground/80">
             <p>
-              <strong>The Problem:</strong> Critical organizational knowledge is trapped in people&apos;s heads, accessible only through meetings and emails. This &quot;context flow problem&quot; creates a bottleneck that prevents effective AI adoption, as AI requires explicit context to function reliably.
+              <strong>The Problem:</strong> Critical organizational knowledge is trapped in people&apos;s heads, and our primary method for transmitting it is through meetings and emails. This &quot;context flow problem&quot; creates a bottleneck that prevents effective AI adoption, as AI requires explicit context to function reliably.
             </p>
             <p>
-              <strong>The Solution:</strong> The Context-First Framework solves this by shifting from a &quot;broadcaster&quot; model to a &quot;publisher&quot; model. By creating structured Context Artefacts—high-leverage documents designed for both human and AI consumption—we unlock the context needed for AI to deliver value.
+              <strong>The Solution:</strong> The Context-First Framework solves this by shifting from a &quot;broadcaster&quot; model to a &quot;publisher&quot; model. By creating structured Context Artefacts, high-leverage documents designed for both human and AI consumption, we unlock the context needed for AI to deliver value.
             </p>
             <p>
               <strong>The Value:</strong> This approach transforms AI from a tool that produces &quot;faster wrong answers&quot; into a genuine productivity engine. The result is not just efficiency, but an organization that learns, adapts, and aligns at the speed of AI.
@@ -403,40 +403,46 @@ export default function Home() {
               ),
             },
             {
-              label: "The Structural Reality",
+              label: "The Organisational Graph",
               imageSrc: "/structural-reality.png",
               imageAlt: "Abstract network graph showing organizational complexity",
               content: (
                 <>
                   <p className="mb-4">
-                    If you observe an organisation as a network graph, you begin to understand why the experience of work feels so different depending on where you sit. At the top, context flows down as strategic direction. Leaders can often dictate the terms by which they engage.
+                    Work doesn't happen in clean vertical lines. It happens in a dense, chaotic web of dependencies. Every meeting, every email, every Teams message is a &quot;transaction&quot; someone, who holds context, required to pass context from one person to another to perform their function.
                   </p>
                   <p className="mb-4">
-                    But move down to the teams that deliver, and the structural reality shifts. These teams exist in a dense web of dependencies. The critical knowledge isn’t in a system; it’s in people’s heads. Bottlenecks form around key people because that’s where the context is trapped.
+                    When we fall behind, our instinct is to add more people. But, in an organisational context, adding more nodes (people) to a network (group of people doing work) doesn't increase speed; it exponentially increases the connections and the noise and increases the coordination tax to get things done. This is why &quot;adding resources&quot; can often not yield the benefits we expect or just pushes the bottleneck somewhere else. They in turn add more people and the problem compounds.
                   </p>
                   <p className="mb-4">
-                    We use meetings and emails as a way to transfer context - but it&apos;s incredibly inefficient. Our failing response is to add more people. When we need to speed up, we add more nodes to the bottleneck, which exponentially increases the connections and noise, compounding the problem.
+                    <strong>Real-World Example: Risk Assessment</strong>
+                  </p>
+                  <p className="mb-4">
+                    Consider a Risk Assessment. It rarely takes long to <em>do</em>, but it takes weeks to <em>start</em>. Why? Because the Risk Specialist needs to gather context from various people accrued over time to perform their task, it often happens late in the delivery which increases pressure, so we bring in more people, these people then need the context (more meetings and emails), they then need to get their assessment approved as they're not senior enough... so on, and so on. The bottleneck isn't the task; it's the &quot;transactional volume&quot; of meetings and emails required to get the context.
                   </p>
                 </>
               ),
             },
             {
-              label: "Real-World Examples",
+              label: "The AI Ceiling",
               imageSrc: "/structural-reality.png",
               imageAlt: "Visual: Strategy Refresh",
               content: (
                 <>
                   <p className="mb-4">
-                    Consider the typical organisational strategy refresh. It is communicated through leadership forums and presentations, but when it&apos;s time to return to work, teams are often left with just a PowerPoint slide.
+                    There's so much energy pushing towards building AI agents to do tasks. Teach people how to prompt. But an AI agent is just another node in this chaotic graph. If the bottleneck is <em>gathering context</em>, AI doesn't help. It just generates &quot;faster wrong answers.&quot;
                   </p>
                   <p className="mb-4">
-                    As a leader, I needed to understand: Are we still aligned? What needs to shift? To do this analysis effectively, particularly with AI assistance, I needed the rationale. This information existed, but scattered across intranet sites. I had to visit over 20 different pages to assemble it.
+                    To get adoption, we must give people the right context to use in the tools to yield useful outputs. And reduce the barriers to do so.
                   </p>
                   <p className="mb-4">
-                    This same pattern plays out every quarter. Sessions are valuable, but the context is delivered verbally. When the session ends, every recipient must interpret what it means for their team and document it themselves.
+                    To get value, we must reduce the <em>volume of transactions</em> by establishing context <em>before</em> the work starts.
                   </p>
-                  <p>
-                    <strong>The compounding implications:</strong> Exponential duplication (100 leaders each doing the same translation work), lossy transmission creating variance across teams, and a barrier to AI adoption—you must write all that context yourself before AI becomes useful.
+                  <p className="mb-4">
+                    <strong>Real-World Example: Strategy Refresh</strong>
+                  </p>
+                  <p className="mb-4">
+                    When strategy is communicated via PowerPoint, people are left after the session with the burden of then documenting the &quot;why.&quot; To use AI effectively, I need the rationale, not just the bullet points. Without a structured <strong>Context Artefact</strong>, I have to write that context myself before AI becomes useful. Most people won't do that, so the AI remains a toy and under-utlised.
                   </p>
                 </>
               ),
@@ -465,10 +471,10 @@ export default function Home() {
                     Think about how we actually spend time today. Writing the code, creating the analysis, drafting the document often takes less time than gathering the context needed to do it right. We spend hours in meetings clarifying requirements, days waiting for answers about constraints, weeks iterating because critical information surfaced too late.
                   </p>
                   <p className="mb-4">
-                    AI capabilities for task execution will improve on their own. But without changing how we organise and share context, that improved capability hits a ceiling. If AI can’t access the context it needs, it will produce faster wrong answers.
+                    AI capabilities for task execution will improve on their own. More tools, better models and better prompting will only get you so far. Without changing how we organise and share context, that improved capability hits a ceiling. If AI can’t access the context it needs, it will produce faster wrong or incomplete answers, which will lead people to revert back to pre-AI practices.
                   </p>
                   <p>
-                    This is the fundamental shift: context availability, not execution capability, becomes the limiting factor for AI value.
+                    Context availability, not execution capability, becomes the limiting factor for AI value.
                   </p>
                 </>
               ),
@@ -536,20 +542,49 @@ export default function Home() {
                   <p className="mb-4">
                     We must change our approach. Instead of using collaboration to find context, we need to create context to enable collaboration. This new approach is built on producing, managing, and leveraging <strong>Context Artefacts</strong>: high-leverage, structured context documents that are readable by humans but built for AI.
                   </p>
-                  <div className="my-6 rounded-lg border border-white/10 bg-white/5 p-4">
-                    <p className="text-sm font-medium text-foreground/90">
-                      <strong>Low-Tech, High-Impact:</strong> This solution is relatively low-tech. While it can be supported by purpose-built tools, it can simply be specifically created Word/PDF documents. The innovation is in changing how we operate to adapt to AI, not in buying new software.
-                    </p>
-                  </div>
                   <p>
-                    This new operating model is built on three pillars:
+                    This new operating model is built on four components:
                   </p>
                   <ol className="list-decimal pl-4 space-y-2 mt-4">
+                    <li><strong>Context Artefacts:</strong> Structured, high-leverage documents designed to be used as seed context for AI.</li>
                     <li><strong>Context Cascade:</strong> The process of distilling and flowing Context Artefacts down through the organisation.</li>
                     <li><strong>Context Core:</strong> The practice of using foundational context to easily create detailed context for specific components. It is the central engine that allows you to build out knowledge efficiently.</li>
                     <li><strong>Patterns of Work:</strong> The new patterns of work that are oriented around the creation, distribution and use of Context Artefacts.</li>
                   </ol>
+                  <p className="mt-6">
+                    <strong>Low-Tech, High-Impact:</strong> This solution is relatively low-tech. While it can be supported by purpose-built tools, it can simply be specifically created Word/PDF documents. The innovation is in changing how we operate to adapt to AI, not in buying new software.
+                  </p>
                 </>
+              ),
+            },
+            {
+              label: "Context Artefacts",
+              content: (
+                <div className="space-y-6">
+                  <p>
+                    Think of <strong>Context Artefacts</strong> as &quot;Claude Skills&quot; but for organisational context. They are curated, high-leverage documents designed to be used as seed context when your people use AI tools.
+                  </p>
+                  <div>
+                    <strong className="block text-foreground mb-2">Two Types of Artefacts</strong>
+                    <ul className="list-disc pl-4 space-y-2 text-foreground/80">
+                      <li>
+                        <strong>Fixed Artefacts:</strong> Enduring context that rarely changes (e.g., Group or Divisional Strategy, Team Purpose and Objectives, Customer Personas, Leadership Principles).
+                      </li>
+                      <li>
+                        <strong>Variable Artefacts:</strong> Context that evolves over time (e.g., Quarterly OKRs, Priorities, Reflections). These are refreshed during cycles like quarterly planning.
+                      </li>
+                    </ul>
+                  </div>
+                  <div>
+                    <strong className="block text-foreground mb-2">The Intent</strong>
+                    <p className="text-foreground/80 mb-4">
+                      To improve the quality of context available to your people. By making high-quality context easily accessible, we reduce the barriers to using AI effectively. It becomes much easier to construct prompts and get valuable outputs when you have the right context ready to go.
+                    </p>
+                    <p className="text-foreground/80">
+                      These artefacts should be constructed with the help of AI, whether by an individual using AI to structure their thoughts, or by analysing transcripts of team sessions to distill key context.
+                    </p>
+                  </div>
+                </div>
               ),
             },
             {
@@ -590,10 +625,7 @@ export default function Home() {
                       content: (
                         <>
                           <p className="mb-4">
-                            <strong>Solves the &quot;Strategy Refresh&quot; Scavenger Hunt:</strong> Remember the example of visiting 20 pages to reconstruct the strategy? Context Cascade eliminates this. Instead of leaders spending days hunting and synthesising context, they receive curated artefacts they can immediately use.
-                          </p>
-                          <p>
-                            It ensures that when a team uses AI to plan their backlog, they are aligned with the CEO&apos;s actual intent (the &quot;why&quot; and &quot;rationale&quot;), not just a guess based on a bullet point.
+                            <strong>Alignment through Inheritance:</strong> The intent is to cascade context so that each level of the organisation inherits the full context from the levels above. This ensures that every team is working from a single, shared source of truth, rather than relying on fragmented or conflicting interpretations.
                           </p>
                         </>
                       ),
@@ -601,9 +633,17 @@ export default function Home() {
                     {
                       label: "Example",
                       content: (
-                        <p>
-                          The CEO publishes the quarterly strategy (Group). The CTO extends this with a technical roadmap (Division). A Product Team imports both into their AI context window to generate a backlog that is technically sound and strategically aligned (Team).
-                        </p>
+                        <div className="space-y-4">
+                          <p>
+                            <strong>The Quarterly Leaders&apos; Call:</strong> Imagine a CEO presenting strategy to 1,000 leaders, sharing achievements, reflections, and priorities via slides and talk-track.
+                          </p>
+                          <p>
+                            <strong>Without Context Cascade:</strong> 1,000 leaders individually interpret this message. You get 1,000 different versions of the strategy fed into 1,000 different AI tools. The result is noise and misalignment.
+                          </p>
+                          <p>
+                            <strong>With Context Cascade:</strong> This context is captured in a structured artefact. All 1,000 leaders inherit the <em>exact same</em> context to seed their team&apos;s planning. You get 1,000 teams perfectly aligned to the core strategy.
+                          </p>
+                        </div>
                       ),
                     },
                   ]}
@@ -620,20 +660,19 @@ export default function Home() {
                       content: (
                         <>
                           <p className="mb-4">
-                            The Context Core is the operational hub—a team’s living repository of <strong>Context Artefacts</strong>. It is where knowledge moves from people’s heads into shared, queryable assets.
+                            The Context Core is a teams local context store - a team’s living repository of <strong>Context Artefacts</strong>. It is where knowledge moves from people’s heads into shared, queryable assets.
                           </p>
                           <p className="mb-4">
-                            Ideally, you should think about starting with your highest leverage artifacts at the core as foundational and build out knowledge from there. A foundational set might contain:
+                            It starts with the context inherited from the organisation (Context Cascade). You then build your local core with foundational artifacts:
                           </p>
                           <ul className="list-disc pl-4 space-y-1 mb-4">
                             <li><strong>Vision/Purpose:</strong> The fundamental purpose, problem, and intended outcomes.</li>
+                            <li><strong>Product Overview:</strong> High-level description of the product and its core value.</li>
                             <li><strong>Annual/Quarterly Priorities:</strong> The &quot;why-now&quot; rationale and OKRs.</li>
                             <li><strong>Reflections / Decision Log:</strong> A running log of key decisions and learnings.</li>
-                            <li><strong>Dependencies:</strong> Key dependencies, interfaces, and owners.</li>
-                            <li><strong>Explicit Definition of Done:</strong> What “done” looks like. This is where “instinct” becomes a concrete, verifiable standard.</li>
                           </ul>
                           <p>
-                            <strong>How it works:</strong> &quot;Resolve it in the hub.&quot; Before calling a meeting, check the hub. If the answer isn&apos;t there, update the artefact <em>then</em> share it.
+                            These foundational artifacts are then used to seed the creation of new context (e.g., feature specs, tickets). Whenever there is a concentration of emails or meetings on a topic, it&apos;s a signal that context is missing and should be written down.
                           </p>
                         </>
                       ),
@@ -643,13 +682,13 @@ export default function Home() {
                       content: (
                         <>
                           <p className="mb-4">
-                            <strong>Unlocks AI for Delivery:</strong> By building from foundational context, teams have the clarity to use AI for planning and prioritization in daily agile ceremonies. It shifts the focus from "requirements gathering" to "context shaping."
+                            <strong>1. Reducing the &quot;Meeting Loop&quot;:</strong> The goal is to document context, not just requirements—to reduce the volume of meetings and emails. Instead of explaining the same context in repetitive meetings, stakeholders consume the Context Artefacts asynchronously.
                           </p>
                           <p className="mb-4">
-                            <strong>Enables Parallel Execution:</strong> Context holders define the "what" and "why" first. This allows AI to help shape the solution and enables stakeholders (Risk, Compliance, Change) to engage <em>earlier</em>.
+                            <strong>2. Seed Context for Delivery:</strong> Without the Context Core, using AI to document your work means starting from a blank canvas.
                           </p>
                           <p>
-                            They can validate the intent and context immediately, rather than waiting for a built solution. This means these critical activities start at day zero, preventing late-stage blockers.
+                            Curated <strong>Context Artefacts</strong> provide the essential "seed context" for your AI tools during delivery. This lowers the barrier to creating high-quality output because the AI isn't guessing, it's building upon a foundation of established truth.
                           </p>
                         </>
                       ),
@@ -657,9 +696,20 @@ export default function Home() {
                     {
                       label: "Example",
                       content: (
-                        <p>
-                          Instead of a 1-hour meeting to debate &quot;quality,&quot; a team refers to their &quot;Explicit Definition of Done&quot; artefact in the Core. They use AI to check their code against this standard, resolving the issue in minutes without a meeting.
-                        </p>
+                        <div className="space-y-4">
+                          <p>
+                            <strong>New Feature Context:</strong> A team is kicking off a new feature. Instead of calling a meeting to explain the &quot;why&quot; and &quot;what&quot; to Product, Engineering, and Design separately:
+                          </p>
+                          <p>
+                            1. They use their <strong>Product Overview</strong> and <strong>Quarterly Priorities</strong> artifacts to seed an AI session.
+                          </p>
+                          <p>
+                            2. They generate a <strong>Feature Context</strong> artifact that clearly articulates the intent, alignment to strategy, and core requirements.
+                          </p>
+                          <p>
+                            3. Stakeholders review this artifact <em>before</em> any meeting. The meeting (if needed) focuses on solving problems, not sharing information.
+                          </p>
+                        </div>
                       ),
                     },
                   ]}
@@ -667,7 +717,40 @@ export default function Home() {
               ),
             },
             {
-              label: "Quarterly Planning",
+              label: "Patterns of Work",
+              content: (
+                <div className="space-y-6">
+                  <p className="mb-4">
+                    We must shift our operating rhythm to prioritize the creation and maintenance of context. We need to unlearn the Agile habit of low documentation and place a new emphasis on creating context to be used in AI tools, training, and delivery.
+                  </p>
+                  <div>
+                    <strong className="block text-foreground mb-2">The Responsibility Shift</strong>
+                    <p className="text-foreground/80 mb-2">
+                      The context holder has a responsibility to create the context. If they don&apos;t, they are simply passing this responsibility on to others.
+                    </p>
+                    <p className="text-foreground/80">
+                      This increases the probability of inaccurate translation variants and productivity impacts as multiple people duplicate the work of recreating that context. It creates a barrier for recipients to use AI because they must first do the work to document the context themselves. Inevitably, it becomes easier to just ask for another meeting or send another email.
+                    </p>
+                  </div>
+                  <div>
+                    <strong className="block text-foreground mb-2">The Methodology: Pause and Prime</strong>
+                    <ul className="list-disc pl-4 space-y-2 text-foreground/80">
+                      <li>
+                        <strong>Pause:</strong> Take a short, focused pause before jumping into building to write down the &quot;why&quot; and &quot;what&quot; into an initial Context Artefact.
+                      </li>
+                      <li>
+                        <strong>Prime:</strong> Immediately publish this seed context to all stakeholders (Risk, Change, Engineering) so they have context from day zero.
+                      </li>
+                    </ul>
+                  </div>
+                  <p>
+                    This allows us to create context <em>before</em> we start, enabling parallel delivery. Experts typically engaged later can be brought in earlier because they have the context to perform their function immediately. The result is fewer meetings and emails needed to transfer this context.
+                  </p>
+                </div>
+              ),
+            },
+            {
+              label: "Stitching It Together",
               content: (
                 <div className="space-y-6">
                   <p className="mb-4">
@@ -689,27 +772,10 @@ export default function Home() {
                     <div>
                       <strong className="block text-lg text-foreground mb-1">3. The Outputs (Context Core)</strong>
                       <p className="text-foreground/80">
-                        By the end of BRP, teams update their own local <strong>Context Artefacts</strong> (Quarterly Priorities, Value Links, Strategy Alignment). This becomes their foundational <strong>Context Core</strong> for the quarter—used to seed context for every feature and manage the backlog.
+                        By the end of BRP, teams update their own local <strong>Context Artefacts</strong> (Quarterly Priorities, Value Links, Strategy Alignment). This becomes their foundational <strong>Context Core</strong> for the quarter, used to seed context for every feature and manage the backlog.
                       </p>
                     </div>
                   </div>
-                </div>
-              ),
-            },
-            {
-              label: "Patterns of Work",
-              content: (
-                <div className="space-y-6">
-                  <p className="mb-4">
-                    We must shift our operating rhythm to prioritize the creation and maintenance of context. This means replacing the &quot;meeting-to-align&quot; habit with a &quot;read-then-act&quot; habit.
-                  </p>
-                  <ul className="list-disc pl-4 space-y-2">
-                    <li><strong>Context Creation:</strong> Context is created <em>before</em> the work starts, not documented after.</li>
-                    <li><strong>Responsibility Shift:</strong> The context holder moves from being a "broadcaster" of verbal updates to a "publisher" of structured, AI-ready assets.</li>
-                    <li><strong>Context Curation:</strong> The Context Core is maintained as a living asset, not a static archive.</li>
-                    <li><strong>Context Consumption:</strong> Teams query the context with AI to answer questions before asking a human.</li>
-                    <li><strong>Update-don&apos;t-meet:</strong> Status updates are posted to the hub, freeing up meeting time for high-value problem solving.</li>
-                  </ul>
                 </div>
               ),
             },
@@ -808,6 +874,29 @@ export default function Home() {
               ),
             },
             {
+              label: "Quarterly Planning",
+              // TODO: Generate image: quarterly-memo-tablet.png
+              // Prompt: Abstract 3D visualization of a digital document or tablet. Glowing with information. Important, central. Dark background. Blue accents.
+              imageSrc: "/context-flow-problem.png",
+              imageAlt: "Visual: Quarterly Planning",
+              content: (
+                <>
+                  <p className="mb-4">
+                    Quarterly planning (leaders&apos; calls, town halls) is a context-dense period where context cascades down through the organisation. Currently, recipients bear the burden of individually transcribing this context to use AI effectively.
+                  </p>
+                  <p className="mb-4">
+                    This is a critical opportunity to demonstrate the power of context. By providing leaders with the distilled context they need, rather than forcing them to create it, we make it easy for them to understand what the strategy means for their teams.
+                  </p>
+                  <p className="mb-4">
+                    When we provide the right context, we unlock the ability for AI to be genuinely effective, turning a burden into a strategic advantage.
+                  </p>
+                  <p>
+                    We should start by providing attendees of these sessions with a long-form Context Artefact of what was communicated in the session, so they can immediately jump into AI tools to work through what it means to them - armed with the same context to ensure alignment, consistency and reduce the barriers to start.
+                  </p>
+                </>
+              ),
+            },
+            {
               label: "Context Tiers",
               // TODO: Generate image: context-tiers-pyramid.png
               // Prompt: Abstract 3D visualization of a layered pyramid or tiered structure. Levels of importance. Glowing blue edges. Dark background.
@@ -824,23 +913,6 @@ export default function Home() {
                     <li><strong>Tier 3 - Project Context (Medium Leverage):</strong> Feature specs.</li>
                     <li><strong>Tier 4 - Tactical (Low Leverage):</strong> Bug tickets, meeting notes.</li>
                   </ul>
-                </>
-              ),
-            },
-            {
-              label: "Quarterly Memo",
-              // TODO: Generate image: quarterly-memo-tablet.png
-              // Prompt: Abstract 3D visualization of a digital document or tablet. Glowing with information. Important, central. Dark background. Blue accents.
-              imageSrc: "/context-flow-problem.png",
-              imageAlt: "Visual: Quarterly Memo",
-              content: (
-                <>
-                  <p className="mb-4">
-                    There’s already a quarterly memo that delivery domains and teams complete. This quarterly context memo should be restored and enhanced as a key <strong>Context Artefact</strong>.
-                  </p>
-                  <p>
-                    It becomes the living Context Core. Rather than a point-in-time status report, it becomes the maintained hub that gets continuously updated.
-                  </p>
                 </>
               ),
             },
