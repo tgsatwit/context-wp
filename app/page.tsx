@@ -368,14 +368,22 @@ export default function Home() {
         >
           <div className="space-y-6 text-lg leading-relaxed text-foreground/80">
             <p>
-              <strong>The Problem:</strong> Critical organizational knowledge is trapped in people&apos;s heads, and our primary method for transmitting it is through meetings and emails. This &quot;context flow problem&quot; creates a bottleneck that prevents effective AI adoption, as AI requires explicit context to function reliably.
+              <strong>The Problem:</strong> Critical organisational knowledge is trapped in people&apos;s heads, and our primary method for transmitting it is through meetings and emails. This &quot;context flow problem&quot; creates a bottleneck that prevents effective AI adoption, as AI requires explicit context to function reliably.
             </p>
             <p>
               <strong>The Solution:</strong> The Context-First Framework solves this by shifting from a &quot;broadcaster&quot; model to a &quot;publisher&quot; model. By creating structured Context Artefacts, high-leverage documents designed for both human and AI consumption, we unlock the context needed for AI to deliver value.
             </p>
             <p>
-              <strong>The Value:</strong> This approach transforms AI from a tool that produces &quot;faster wrong answers&quot; into a genuine productivity engine. The result is not just efficiency, but an organization that learns, adapts, and aligns at the speed of AI.
+              <strong>The Value:</strong> This approach transforms AI from a tool that produces &quot;faster wrong answers&quot; into a genuine productivity engine. The result is not just efficiency, but an organisation that learns, adapts, and aligns at the speed of AI.
             </p>
+          </div>
+          <div className="relative aspect-video w-full overflow-hidden rounded-2xl border border-white/10 bg-white/5 md:aspect-auto md:h-full">
+            <NextImage
+              src="/executive-summary.png"
+              alt="Visualization of the Context-First Organisation"
+              fill
+              className="object-cover"
+            />
           </div>
         </ContentSection>
 
@@ -387,6 +395,8 @@ export default function Home() {
             {
               label: "The Context Flow Problem",
               imageSrc: "/context-flow-problem.png",
+              // TODO: Generate image: context_flow_problem.png
+              // Prompt: A futuristic 3D abstract visualization of a communication bottleneck. On the left, a single large, radiant node (Context Holder) glows intensely in cyan (#23D4FF) and electric blue. It projects thin, singular beams towards a group of smaller, dimmer, scattered nodes on the right (Recipients). The recipients are faint, lacking the internal glow of the source. The space between is dark deep teal (#0080A8 to #04121B). The composition emphasizes the asymmetry and the struggle to transfer the 'glow' (context) one-by-one. Minimal, precise, 8k, unreal engine 5 style.
               imageAlt: "Visualization of a network bottleneck",
               content: (
                 <>
@@ -404,7 +414,9 @@ export default function Home() {
             },
             {
               label: "The Organisational Graph",
-              imageSrc: "/structural-reality.png",
+              imageSrc: "/organizational-graph.png",
+              // TODO: Generate image: organizational_graph.png
+              // Prompt: A futuristic 3D abstract network graph showing organizational complexity. Top: A single glowing node connects via clean, thin lines to three mid-level nodes. Below this, the graph explodes into a dense, chaotic web of many nodes. The connections in this lower layer are thick, tangled, and numerous, representing the overwhelming volume of meetings and emails. The lines are frenetic and overlapping. Colors: Cyan (#23D4FF) for nodes, deep teal (#0080A8) background. The visual story is 'clean strategy at the top, chaotic execution at the bottom'. High contrast, 8k, unreal engine 5 style.
               imageAlt: "Abstract network graph showing organizational complexity",
               content: (
                 <>
@@ -425,7 +437,9 @@ export default function Home() {
             },
             {
               label: "The AI Ceiling",
-              imageSrc: "/structural-reality.png",
+              imageSrc: "/ai-ceiling.png",
+              // TODO: Generate image: ai_ceiling.png
+              // Prompt: A futuristic 3D abstract network graph representing 'Context Efficiency'. It mirrors the structure of a chaotic graph but is now transformed into order. The lower level of nodes is organized and aligned. The connections are fewer, stronger, and straighter, glowing bright cyan (#23D4FF). This represents the reduction of 'noise' (meetings/emails) through shared context. The atmosphere is calm, precise, and efficient. Deep teal background. 8k, unreal engine 5 style.
               imageAlt: "Visual: Strategy Refresh",
               content: (
                 <>
