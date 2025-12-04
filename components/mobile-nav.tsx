@@ -43,11 +43,14 @@ export function MobileNav({ sections, currentSection, onSectionSelect }: MobileN
                     isOpen ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
                 )}
             >
-                {/* Close Button */}
-                <div className="flex justify-end p-6">
+                {/* Header with Title and Close Button */}
+                <div className="flex items-start justify-between p-6">
+                    <h1 className="max-w-[80%] font-serif text-xl leading-tight text-foreground">
+                        Show me the context, and I’ll show you the output.
+                    </h1>
                     <button
                         onClick={() => setIsOpen(false)}
-                        className="flex h-10 w-10 items-center justify-center rounded-full border border-foreground/20 bg-background/80 transition-colors hover:bg-foreground/10"
+                        className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-foreground/20 bg-background/80 transition-colors hover:bg-foreground/10"
                         aria-label="Close menu"
                     >
                         <X className="h-5 w-5 text-foreground" />
@@ -55,7 +58,7 @@ export function MobileNav({ sections, currentSection, onSectionSelect }: MobileN
                 </div>
 
                 {/* Navigation Links */}
-                <nav className="flex flex-1 flex-col items-center justify-center gap-8 p-6">
+                <nav className="flex flex-1 flex-col items-center justify-center gap-6 p-6">
                     {sections.map((section, index) => (
                         <button
                             key={section}
@@ -64,7 +67,7 @@ export function MobileNav({ sections, currentSection, onSectionSelect }: MobileN
                                 setIsOpen(false)
                             }}
                             className={cn(
-                                "text-3xl font-light tracking-tight transition-colors",
+                                "text-xl font-light tracking-tight transition-colors",
                                 currentSection === index
                                     ? "text-foreground"
                                     : "text-foreground/60 hover:text-foreground"
