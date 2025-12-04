@@ -1,6 +1,5 @@
 "use client"
 
-import { useState } from "react"
 import NextImage from "next/image"
 import { useReveal } from "@/hooks/use-reveal"
 import { cn } from "@/lib/utils"
@@ -18,6 +17,8 @@ interface TabbedContentSectionProps {
     imagePosition?: "left" | "right"
     tabs: Tab[]
     className?: string
+    currentTab?: number
+    onTabChange?: (index: number) => void
 }
 
 export function TabbedContentSection({
@@ -26,36 +27,37 @@ export function TabbedContentSection({
     imagePosition = "right",
     tabs,
     className = "",
+    currentTab = 0,
+    onTabChange,
 }: TabbedContentSectionProps) {
     const { ref, isVisible } = useReveal(0.2)
-    const [activeTab, setActiveTab] = useState(0)
 
     return (
         <section
             ref={ref}
             className={cn(
-                "flex min-h-screen w-full md:w-screen shrink-0 snap-start flex-col px-6 py-24 md:items-center md:justify-center md:overflow-y-auto md:overflow-x-hidden md:px-12 md:py-0 lg:px-16",
+                "relative flex w-full md:w-screen shrink-0 snap-start flex-col px-6 py-24 md:items-center md:justify-center md:overflow-y-auto md:overflow-x-hidden md:px-12 md:py-0 lg:px-16",
                 className
             )}
         >
-            <div className="mx-auto w-full max-w-7xl">
+            <div className="md:mx-auto w-full max-w-7xl md:h-full md:flex md:flex-col md:justify-center sticky top-0 h-screen md:static md:h-auto flex flex-col justify-center">
                 {/* Header */}
                 <div
                     className={cn(
-                        "mb-8 transition-all duration-700 md:mb-12",
+                        "mb-8 transition-all duration-700 md:mb-12 shrink-0",
                         isVisible ? "translate-y-0 opacity-100" : "-translate-y-12 opacity-0"
                     )}
                 >
-                    <h2 className="mb-2 font-sans text-4xl font-light tracking-tight text-foreground md:text-5xl lg:text-6xl text-balance">
+                    <h2 className="mb-2 font-sans text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light tracking-tight text-foreground text-balance">
                         {title}
                     </h2>
                     {subtitle && (
-                        <p className="font-mono text-sm text-foreground/60 md:text-base">/ {subtitle}</p>
+                        <p className="font-mono text-xs md:text-sm text-foreground/60 md:text-base">/ {subtitle}</p>
                     )}
                 </div>
 
                 {/* Content Grid */}
-                <div className="grid gap-8 md:grid-cols-12 lg:gap-16 items-start">
+                <div className="grid gap-8 md:grid-cols-12 lg:gap-16 items-start grow md:grow-0">
                     {/* Image Column - Reduced width (5/12) */}
                     <div
                         className={cn(
@@ -69,7 +71,7 @@ export function TabbedContentSection({
                                 key={index}
                                 className={cn(
                                     "absolute inset-0 transition-opacity duration-500",
-                                    activeTab === index ? "opacity-100 z-10" : "opacity-0 z-0"
+                                    currentTab === index ? "opacity-100 z-10" : "opacity-0 z-0"
                                 )}
                             >
                                 {tab.imageSrc.startsWith("/") ? (
@@ -99,10 +101,10 @@ export function TabbedContentSection({
                             {tabs.map((tab, index) => (
                                 <button
                                     key={index}
-                                    onClick={() => setActiveTab(index)}
+                                    onClick={() => onTabChange?.(index)}
                                     className={cn(
-                                        "rounded-full px-4 py-1.5 text-sm font-medium transition-all duration-300",
-                                        activeTab === index
+                                        "rounded-full px-4 py-1.5 text-xs md:text-sm font-medium transition-all duration-300",
+                                        currentTab === index
                                             ? "bg-foreground text-background"
                                             : "bg-white/5 text-foreground/60 hover:bg-white/10 hover:text-foreground"
                                     )}
@@ -119,12 +121,12 @@ export function TabbedContentSection({
                                     key={index}
                                     className={cn(
                                         "col-start-1 row-start-1 transition-all duration-500",
-                                        activeTab === index
+                                        currentTab === index
                                             ? "z-10 opacity-100 translate-x-0"
                                             : "z-0 opacity-0 translate-x-8 pointer-events-none"
                                     )}
                                 >
-                                    <div className="prose prose-invert max-w-none text-base leading-relaxed text-foreground/80">
+                                    <div className="prose prose-invert max-w-none text-sm md:text-base leading-relaxed text-foreground/80">
                                         {tab.content}
                                     </div>
                                 </div>

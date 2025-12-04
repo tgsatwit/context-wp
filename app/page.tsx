@@ -12,24 +12,37 @@ import { MagneticButton } from "@/components/magnetic-button"
 import { MobileNav } from "@/components/mobile-nav"
 import { useRef, useEffect, useState } from "react"
 
+const sectionsConfig = [
+  { title: "Home", tabs: 0 },
+  { title: "Executive Summary", tabs: 0 },
+  { title: "The Problem", tabs: 3 },
+  { title: "Why AI Changes Everything", tabs: 3 },
+  { title: "The Solution", tabs: 6 },
+  { title: "Business Case", tabs: 3 },
+  { title: "Getting Started", tabs: 4 }
+]
+
 export default function Home() {
   const scrollContainerRef = useRef<HTMLDivElement>(null)
   const [currentSection, setCurrentSection] = useState(0)
   const [isLoaded, setIsLoaded] = useState(false)
+  const [tabStates, setTabStates] = useState<{ [key: number]: number }>({})
+  const [isMobile, setIsMobile] = useState(false)
 
   const shaderContainerRef = useRef<HTMLDivElement>(null)
   const scrollThrottleRef = useRef<number | undefined>(undefined)
   const isScrollingRef = useRef(false)
 
-  const sections = [
-    "Home",
-    "Executive Summary",
-    "The Problem",
-    "Why AI Changes Everything",
-    "The Solution",
-    "Business Case",
-    "Getting Started"
-  ]
+  const sections = sectionsConfig.map(s => s.title)
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768)
+    }
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
 
   useEffect(() => {
     const checkShaderReady = () => {
@@ -61,30 +74,21 @@ export default function Home() {
     }
   }, [])
 
-  const scrollToSection = (index: number) => {
+  const scrollToSection = (index: number, tabIndex: number = 0) => {
     if (scrollContainerRef.current) {
-      // Check if we are on mobile (vertical layout) or desktop (horizontal layout)
-      const isMobile = window.innerWidth < 768 // md breakpoint
-
       if (isMobile) {
         const container = scrollContainerRef.current
         const sectionElement = container.children[index] as HTMLElement
         if (sectionElement) {
+          // For mobile, we scroll to the top of the section
+          // If we want to scroll to a specific tab, we need to add offset
+          // But usually we just scroll to section start
           const top = sectionElement.offsetTop
-          window.scrollTo({
-            top: top, // We might need to scroll the window or the container depending on setup. 
-            // In this refactor, the container is the main scroller on desktop, but on mobile we might want window scroll or container scroll.
-            // Let's stick to container scroll for consistency if possible, but usually vertical scroll is window.
-            // Actually, if we change the container to be vertical flex, we can just scroll the container if it's h-screen overflow-y-auto.
-            // BUT, standard mobile behavior is usually window scroll. 
-            // Let's try to keep the container as the scroller for now to minimize disruption, just changing direction.
-            behavior: "smooth"
-          })
-          // If we use window scroll, we need to scroll the window.
-          // If we use container scroll (h-screen overflow-y-auto), we scroll the container.
-          // Let's assume we keep the container as the scrollable element for now.
+          // If tabIndex > 0, we could add tabIndex * window.innerHeight
+          const targetTop = top + (tabIndex * window.innerHeight)
+
           container.scrollTo({
-            top: sectionElement.offsetTop,
+            top: targetTop,
             behavior: "smooth"
           })
         }
@@ -103,6 +107,7 @@ export default function Home() {
         }
       }
       setCurrentSection(index)
+      setTabStates(prev => ({ ...prev, [index]: tabIndex }))
     }
   }
 
@@ -111,7 +116,7 @@ export default function Home() {
       if (!scrollContainerRef.current || isScrollingRef.current) return
 
       // Only apply custom horizontal scroll logic on desktop
-      if (window.innerWidth < 768) return
+      if (isMobile) return
 
       const container = scrollContainerRef.current
       const currentSectionElement = container.children[currentSection] as HTMLElement
@@ -127,12 +132,23 @@ export default function Home() {
         // Ignore small movements (trackpad noise)
         if (Math.abs(e.deltaY) < 20) return
 
+        const config = sectionsConfig[currentSection]
+        const currentTab = tabStates[currentSection] || 0
+
         // If scrolling down
         if (e.deltaY > 0) {
           if (isVerticalScrollable && !isAtBottom) {
             // Allow native vertical scroll
             return
-          } else if (currentSection < sections.length - 1) {
+          }
+
+          // Check if we can scroll tabs
+          if (config.tabs > 0 && currentTab < config.tabs - 1) {
+            setTabStates(prev => ({ ...prev, [currentSection]: currentTab + 1 }))
+            return
+          }
+
+          if (currentSection < sections.length - 1) {
             // Navigate to next section
             e.preventDefault()
             scrollToSection(currentSection + 1)
@@ -143,10 +159,21 @@ export default function Home() {
           if (isVerticalScrollable && !isAtTop) {
             // Allow native vertical scroll
             return
-          } else if (currentSection > 0) {
+          }
+
+          // Check if we can scroll tabs
+          if (config.tabs > 0 && currentTab > 0) {
+            setTabStates(prev => ({ ...prev, [currentSection]: currentTab - 1 }))
+            return
+          }
+
+          if (currentSection > 0) {
             // Navigate to previous section
             e.preventDefault()
-            scrollToSection(currentSection - 1)
+            const prevSection = currentSection - 1
+            const prevConfig = sectionsConfig[prevSection]
+            const initialTab = prevConfig.tabs > 0 ? prevConfig.tabs - 1 : 0
+            scrollToSection(prevSection, initialTab)
           }
         }
       }
@@ -162,7 +189,7 @@ export default function Home() {
         container.removeEventListener("wheel", handleWheel)
       }
     }
-  }, [currentSection, sections.length])
+  }, [currentSection, sections.length, isMobile, tabStates])
 
   useEffect(() => {
     const handleScroll = () => {
@@ -174,15 +201,11 @@ export default function Home() {
           return
         }
 
-        const isMobile = window.innerWidth < 768
-
         if (isMobile) {
           // Vertical scroll tracking
-          // This is a bit complex because sections might have different heights.
-          // Simple IntersectionObserver might be better, but let's try basic offset tracking.
           const container = scrollContainerRef.current
           const scrollTop = container.scrollTop
-          const containerHeight = container.clientHeight // or window height
+          const viewportHeight = window.innerHeight
 
           // Find which section is most visible
           let maxVisibility = 0
@@ -193,10 +216,30 @@ export default function Home() {
             const rect = element.getBoundingClientRect()
 
             // Calculate intersection with viewport
-            const visibleHeight = Math.min(rect.bottom, window.innerHeight) - Math.max(rect.top, 0)
+            const visibleHeight = Math.min(rect.bottom, viewportHeight) - Math.max(rect.top, 0)
             if (visibleHeight > maxVisibility) {
               maxVisibility = visibleHeight
               bestSection = index
+            }
+
+            // Update tab state based on scroll position within section
+            const config = sectionsConfig[index]
+            if (config.tabs > 0) {
+              // Calculate progress
+              // If rect.top is 0, we are at start (tab 0)
+              // If rect.top is -viewportHeight, we are at tab 1
+              const progress = -rect.top / viewportHeight
+              const tabIndex = Math.min(Math.max(Math.floor(progress), 0), config.tabs - 1)
+
+              // Only update if changed and section is visible
+              if (visibleHeight > 0) {
+                setTabStates(prev => {
+                  if (prev[index] !== tabIndex) {
+                    return { ...prev, [index]: tabIndex }
+                  }
+                  return prev
+                })
+              }
             }
           })
 
@@ -231,7 +274,7 @@ export default function Home() {
         cancelAnimationFrame(scrollThrottleRef.current)
       }
     }
-  }, [currentSection, sections.length])
+  }, [currentSection, sections.length, isMobile])
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -259,7 +302,6 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-
 
       <GrainOverlay />
 
@@ -291,15 +333,13 @@ export default function Home() {
       <MobileNav
         sections={sections}
         currentSection={currentSection}
-        onSectionSelect={scrollToSection}
+        onSectionSelect={(idx) => scrollToSection(idx)}
       />
 
       <nav
         className={`fixed left-0 right-0 top-0 z-50 hidden items-center justify-center px-6 py-6 transition-opacity duration-700 md:flex md:px-12 ${isLoaded ? "opacity-100" : "opacity-0"
           }`}
       >
-
-
         <div className="hidden items-center gap-6 md:flex">
           {sections.map((item, index) => (
             <button
@@ -316,8 +356,6 @@ export default function Home() {
             </button>
           ))}
         </div>
-
-
       </nav>
 
       <div
@@ -391,12 +429,13 @@ export default function Home() {
           title="The Problem"
           subtitle="Why Context is the New Bottleneck"
           imagePosition="right"
+          className={isMobile ? "h-[300vh]" : ""}
+          currentTab={tabStates[2] || 0}
+          onTabChange={(index) => setTabStates(prev => ({ ...prev, 2: index }))}
           tabs={[
             {
               label: "The Context Flow Problem",
               imageSrc: "/context-flow-problem.png",
-              // TODO: Generate image: context_flow_problem.png
-              // Prompt: A futuristic 3D abstract visualization of a communication bottleneck. On the left, a single large, radiant node (Context Holder) glows intensely in cyan (#23D4FF) and electric blue. It projects thin, singular beams towards a group of smaller, dimmer, scattered nodes on the right (Recipients). The recipients are faint, lacking the internal glow of the source. The space between is dark deep teal (#0080A8 to #04121B). The composition emphasizes the asymmetry and the struggle to transfer the 'glow' (context) one-by-one. Minimal, precise, 8k, unreal engine 5 style.
               imageAlt: "Visualization of a network bottleneck",
               content: (
                 <>
@@ -415,8 +454,6 @@ export default function Home() {
             {
               label: "The Organisational Graph",
               imageSrc: "/organizational-graph.png",
-              // TODO: Generate image: organizational_graph.png
-              // Prompt: A futuristic 3D abstract network graph showing organizational complexity. Top: A single glowing node connects via clean, thin lines to three mid-level nodes. Below this, the graph explodes into a dense, chaotic web of many nodes. The connections in this lower layer are thick, tangled, and numerous, representing the overwhelming volume of meetings and emails. The lines are frenetic and overlapping. Colors: Cyan (#23D4FF) for nodes, deep teal (#0080A8) background. The visual story is 'clean strategy at the top, chaotic execution at the bottom'. High contrast, 8k, unreal engine 5 style.
               imageAlt: "Abstract network graph showing organizational complexity",
               content: (
                 <>
@@ -438,8 +475,6 @@ export default function Home() {
             {
               label: "The AI Ceiling",
               imageSrc: "/ai-ceiling.png",
-              // TODO: Generate image: ai_ceiling.png
-              // Prompt: A futuristic 3D abstract network graph representing 'Context Efficiency'. It mirrors the structure of a chaotic graph but is now transformed into order. The lower level of nodes is organized and aligned. The connections are fewer, stronger, and straighter, glowing bright cyan (#23D4FF). This represents the reduction of 'noise' (meetings/emails) through shared context. The atmosphere is calm, precise, and efficient. Deep teal background. 8k, unreal engine 5 style.
               imageAlt: "Visual: Strategy Refresh",
               content: (
                 <>
@@ -468,6 +503,9 @@ export default function Home() {
           title="Why AI Changes Everything"
           subtitle="The Adoption Paradox"
           imagePosition="right"
+          className={isMobile ? "h-[300vh]" : ""}
+          currentTab={tabStates[3] || 0}
+          onTabChange={(index) => setTabStates(prev => ({ ...prev, 3: index }))}
           tabs={[
             {
               label: "The New Bottleneck",
@@ -495,8 +533,6 @@ export default function Home() {
             },
             {
               label: "The Documentation Inversion",
-              // TODO: Generate image: agile-bug-glitch.png
-              // Prompt: Abstract 3D visualization of a glitch or bug in a digital system. Matrix-like code rain but distorted. Dark background. Blue and white.
               imageSrc: "/structural-reality.png",
               imageAlt: "Visual: The Agile Bug",
               content: (
@@ -543,11 +579,12 @@ export default function Home() {
           ]}
         />
 
-
-
         <FrameworkSection
           title="The Solution"
           subtitle="Context-First Framework"
+          className={isMobile ? "h-[600vh]" : ""}
+          currentTab={tabStates[4] || 0}
+          onTabChange={(index) => setTabStates(prev => ({ ...prev, 4: index }))}
           tabs={[
             {
               label: "Overview",
@@ -800,6 +837,9 @@ export default function Home() {
           title="The Business Case"
           subtitle="The Investment Case"
           imagePosition="left"
+          className={isMobile ? "h-[300vh]" : ""}
+          currentTab={tabStates[5] || 0}
+          onTabChange={(index) => setTabStates(prev => ({ ...prev, 5: index }))}
           tabs={[
             {
               label: "The ROI",
@@ -869,11 +909,12 @@ export default function Home() {
           title="Getting Started"
           subtitle="Where and How to Start"
           imagePosition="left"
+          className={isMobile ? "h-[400vh]" : ""}
+          currentTab={tabStates[6] || 0}
+          onTabChange={(index) => setTabStates(prev => ({ ...prev, 6: index }))}
           tabs={[
             {
               label: "Immediate Start",
-              // TODO: Generate image: start-ignition-spark.png
-              // Prompt: Abstract 3D visualization of a start button or ignition. Spark of energy. Beginning. Glowing blue. Dark background.
               imageSrc: "/ai-context-fuel.png",
               imageAlt: "Visual: Immediate Start",
               content: (
@@ -889,8 +930,6 @@ export default function Home() {
             },
             {
               label: "Quarterly Planning",
-              // TODO: Generate image: quarterly-memo-tablet.png
-              // Prompt: Abstract 3D visualization of a digital document or tablet. Glowing with information. Important, central. Dark background. Blue accents.
               imageSrc: "/context-flow-problem.png",
               imageAlt: "Visual: Quarterly Planning",
               content: (
@@ -912,8 +951,6 @@ export default function Home() {
             },
             {
               label: "Context Tiers",
-              // TODO: Generate image: context-tiers-pyramid.png
-              // Prompt: Abstract 3D visualization of a layered pyramid or tiered structure. Levels of importance. Glowing blue edges. Dark background.
               imageSrc: "/structural-reality.png",
               imageAlt: "Visual: Context Tiers",
               content: (
@@ -932,8 +969,6 @@ export default function Home() {
             },
             {
               label: "Addressing Objections",
-              // TODO: Generate image: objections-shield-dissolve.png
-              // Prompt: Abstract 3D visualization of a shield or barrier being dissolved. Overcoming resistance. Dark background. Blue light.
               imageSrc: "/ai-context-fuel.png",
               imageAlt: "Visual: Addressing Objections",
               content: (
