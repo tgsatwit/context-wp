@@ -496,6 +496,7 @@ interface Slide {
   isTitle?: boolean;
   isConclusion?: boolean;
   content: SlideContent[];
+  section?: string;
 }
 
 const slides: Slide[] = [
@@ -503,6 +504,7 @@ const slides: Slide[] = [
     title: "Show me the context, and I'll show you the output.",
     subtitle: "The Context-First Organisation",
     isTitle: true,
+    section: "Home",
     content: [
       {
         text: "Why AI demands we rethink how we work. The bottleneck isn't AI's ability to do tasks. It's our ability to give AI the context it needs to do them well."
@@ -512,6 +514,7 @@ const slides: Slide[] = [
   {
     title: "Executive Summary",
     subtitle: "The Context-First Organisation",
+    section: "Executive Summary",
     content: [
       {
         heading: "The Problem:",
@@ -528,101 +531,190 @@ const slides: Slide[] = [
     ]
   },
   {
-    title: "The Context Flow Problem",
-    subtitle: "Why Context is the New Bottleneck",
+    title: "The AI Paradox",
+    subtitle: "Capability Without Fuel",
+    section: "The Problem",
     content: [
       {
-        text: "\"Too many meetings. Too many emails.\" How many times have you heard this? We have a context flow problem. Critical knowledge is trapped in people's heads, accessible only through endless meetings and emails."
+        text: "We are witnessing a paradox in enterprise AI adoption. We've deployed tools like ChatGPT. Initial enthusiasm was high. Yet recent monitoring suggests the adoption curve is beginning to flatten."
       },
       {
-        text: "Unsolved, this could be a huge constraint on AI adoption and our ability to leverage AI to help us deliver value."
+        text: "Why? It is not a lack of demand. It is not a lack of tool capability. The friction lies in the nature of our work itself."
       },
       {
-        text: "Why? The bottleneck isn't AI's ability to do tasks. It's our ability to give AI the context it needs to do them well. Quality context availability, not execution capability, is now the limiting factor for AI value."
+        text: "AI functions as a reasoning engine, but reasoning requires inputs. CBA still relies heavily on tacit knowledge. Strategic context that lives in meetings, presentations, and individual minds. We effectively ask employees to memorise complex strategies and then reconstruct them perfectly for an AI system that has no memory of what was discussed in last week's Town Hall."
+      },
+      {
+        text: "When context is unavailable or not provided, AI hallucinates or produces generic, low-value outputs. The bottleneck is not the AI's ability to perform the task. It is our ability to give AI the context it needs to perform it well."
+      },
+      {
+        quote: "Most organisations believe they have an AI adoption problem. In reality, they have a context problem."
       }
     ]
   },
   {
-    title: "The Organisational Graph",
-    subtitle: "Why Context is the New Bottleneck",
+    title: "The Diagnosis",
+    subtitle: "Quarterly Planning as Case Study",
+    section: "The Problem",
     content: [
       {
-        text: "Work doesn't happen in clean vertical lines. It happens in a dense, chaotic web of dependencies. Every meeting, every email is a 'transaction' passing context from one person to another."
+        text: "The recent Quarterly Planning cycle provided a clear illustration of this failure."
       },
       {
-        text: "When we fall behind, our instinct is to add more people. But adding more nodes exponentially increases the connections, noise, and coordination tax."
+        text: "Leadership invested three hours in Town Halls, articulating high-fidelity context. Strategic narratives. Reflections on the previous quarter. Emerging constraints. Shifts in operating context. The rationale behind upcoming priorities."
       },
       {
-        heading: "Real-World Example: Risk Assessment",
-        text: "Consider a Risk Assessment. It rarely takes long to <em>do</em>, but it takes weeks to <em>start</em>. Why? Because the Risk Specialist needs to gather context from various people accrued over time. The bottleneck isn't the task; it's the 'transactional volume' of meetings required to get the context."
+        text: "Yet the tangible output for thousands of attendees for each of these session was often a single slide and their own personal notes."
+      },
+      {
+        text: "It's reasonable to assume, that following these sessions, a leaders expectation of attendees is that they take this context away and consider what this means for them and their teams."
+      },
+      {
+        text: "AI would seem the perfect tool to act as a strategic partner to do such a task."
+      },
+      {
+        text: "Yet, to use ChatGPT effectively for this function, every employee would have to manually reconstruct this missing context. If done, this will have resulted in massive duplicated effort across the organisation."
       }
     ]
   },
   {
-    title: "The AI Ceiling",
-    subtitle: "Why Context is the New Bottleneck",
+    title: "The Diagnosis",
+    subtitle: "The Strategy Refresh Experience",
+    section: "The Problem",
     content: [
       {
-        text: "There's so much energy pushing towards building AI agents to do tasks. But an AI agent is just another node in this chaotic graph. If the bottleneck is <em>gathering context</em>, AI doesn't help. It just generates 'faster wrong answers.'"
+        text: "Earlier this year, CBA underwent a strategy refresh. When it came time to execute, teams were left with a single PowerPoint slide."
       },
       {
-        text: "To get value, we must reduce the <em>volume of transactions</em> by establishing context <em>before</em> the work starts."
+        text: "Finding the information required to give AI adequate context proved painful. For the Group Strategy, it took ten minutes. Information was generally available in longer articles. For the Technology Strategy, it required hours browsing over twenty intranet pages to assemble a coherent picture. For Operations, there was virtually nothing accessible."
       },
       {
-        heading: "Real-World Example: Strategy Refresh",
-        text: "When strategy is communicated via PowerPoint, people are left with the burden of documenting the 'why.' Without a structured <strong>Context Artefact</strong>, I have to write that context myself before AI becomes useful. Most won't, so AI remains a toy."
+        text: "Putting this scattered information together took the better part of a day. Had the provided PowerPoint been used with an AI tool directly, the lack of rationale would have forced the AI to make assumptions or produce generic advice."
+      },
+      {
+        text: "This is the context problem in practice. Critical knowledge exists, but it is fragmented, unstandardised, or trapped in people's heads. Because we lack a standard for transferring context, we default to meetings. Which drowns our key people in the process."
       }
     ]
   },
   {
-    title: "The New Bottleneck",
-    subtitle: "Why AI Changes Everything",
+    title: "The Structural Reality",
+    subtitle: "Why Experience Differs by Role",
+    section: "The Problem",
     content: [
       {
-        text: "We are investing in AI tools to help us accelerate. But the bottleneck isn't AI's ability to do tasks. It's our ability to give AI the context it needs to do them well."
+        text: "If you view an organisation as a network graph, you understand why work feels different depending on where you sit."
       },
       {
-        text: "Think about how we actually spend time today. Writing code or drafting documents often takes less time than gathering the context needed to do it right. We spend hours in meetings clarifying requirements."
+        text: "Consider the contrast between a CEO and a Delivery Lead. Senior leaders often send surprisingly few emails. They dictate terms, and context flows downward from them. But move down to the delivery teams and the structural reality shifts. These teams exist in a dense web of dependencies. Coordinating with peers. Clarifying requirements. Validating with risk and compliance functions."
       },
       {
-        text: "If AI can't access the context it needs, it will produce faster wrong answers. Context availability, not execution capability, becomes the limiting factor for AI value."
+        text: "They cannot simply opt out of this communication. They are bound by the coordination demands their role creates. The number of connections, and therefore the coordination overhead, grows exponentially."
+      },
+      {
+        text: "The problem is that critical knowledge is not stored in a system. It is fragmented across this web. Bottlenecks form around key individuals because they hold the context. Delivery moves only as fast as these individuals can attend meetings."
+      },
+      {
+        text: "Our typical response is to add more people. Yet adding nodes to a congested network only increases the number of connections and noise. The birthday paradox in organisational form. This compounds the coordination tax rather than reducing it."
       }
     ]
   },
   {
-    title: "The Documentation Inversion",
-    subtitle: "Why AI Changes Everything",
+    title: "Context Scarcity",
+    subtitle: "Why Context Becomes the Scarce Resource",
+    section: "Why AI Changes Everything",
     content: [
       {
-        text: "There is a fundamental tension between how we have been trained to work and what AI requires. The Agile Manifesto's 'Working software over comprehensive documentation' was a necessary correction, but now this mindset is antithetical to progress."
+        text: "Humans can infer context through tone, experience, shared history, side conversations, and tacit assumptions. AI cannot."
       },
       {
-        text: "Traditional Agile relies on tacit knowledge. <strong>This is fatal for AI adoption.</strong> AI cannot 'set up a meeting' to clarify a requirement. It requires explicit, structured context <em>before</em> the work starts."
+        text: "AI requires explicit context. Structured inputs. Clear constraints. Well-formed rationale. Definitions of success. Without these, AI produces generic answers, incorrect assumptions, misaligned outputs, low-quality drafts, and poor recommendations."
       },
       {
-        text: "This is why the economics of documentation have flipped. Before AI, writing extensive documentation was expensive. Now, creating structured <strong>Context Artefacts</strong> is cheap and essential."
+        quote: "The quality of AI output is now a direct function of context availability, not model capability."
+      },
+      {
+        text: "This creates a fundamental economic shift. Model upgrades from vendors yield marginal benefit. Perhaps 10 to 20 percent improvement in output quality. But providing good context can yield 200 to 500 percent improvement. The leverage has moved from the technology to the fuel."
       }
     ]
   },
   {
-    title: "The Responsibility Shift",
-    subtitle: "Why AI Changes Everything",
+    title: "The Core Tension",
+    subtitle: "Agile Habits vs AI Needs",
+    section: "Why AI Changes Everything",
     content: [
       {
-        text: "The emergence of AI has further exposed the context flow problem. Communicating context verbally is no longer sufficient."
+        heading: "The Agile Conflict",
+        text: "The Agile Manifesto's preference for 'working software over comprehensive documentation' was a necessary correction to Waterfall methodology. However, in the age of AI, the resulting 'docs-last' (or docs-never) habit has become an active impediment to progress."
       },
+      {
+        text: "Traditional Agile relies on tacit knowledge and conversation. We minimise documentation because we assume we can 'set up a quick meeting' or 'jump on a standup' to fill gaps. The documentation that does exist is almost always created after the work is done."
+      },
+      {
+        text: "<strong>This approach is fatal for AI adoption.</strong>"
+      },
+      {
+        text: "AI cannot 'set up a meeting' to clarify a requirement. It cannot read the room during a standup. It requires explicit, structured context <em>before</em> the work starts. If the context remains trapped in your head, the AI is useless."
+      },
+      {
+        text: "By clinging to the Agile habit of docs-last, we are actively blocking our ability to use these tools. Without changing this dynamic, there is a hard limit to how fast we can move. The limiting factor for speed is now simply how fast you can pass context to others to perform their part of the process."
+      }
+    ]
+  },
+  {
+    title: "The Core Tension",
+    subtitle: "The Responsibility Shift",
+    section: "Why AI Changes Everything",
+    content: [
       {
         heading: "A New Responsibility",
-        text: "The holder of the context must share it in a form that allows the recipient to consume it effectively with AI tools. The context holder must now be a 'publisher,' not just a broadcaster."
+        text: "The emergence of AI exposes that verbal communication is no longer sufficient. This creates a new responsibility: <strong>the context holder must become a publisher, not just a broadcaster.</strong>"
       },
       {
-        text: "By providing this detailed, accessible context, they enable their teams to immediately leverage it in their own AI workflows, preventing massive duplication of effort and misalignment."
+        text: "Consider a standard quarterly leadership call. Senior leaders speak for an hour, supported by a PowerPoint slide with bullet points. Typically <em>what</em>, not <em>why</em>. Historically, this was accepted. But today, if that leader fails to provide a detailed artefact after the session, the work grows exponentially for recipients. Every downstream team must individually attempt to reconstruct the rationale."
+      },
+      {
+        text: "It is no longer acceptable to present for an hour and leave the audience to reconstruct the rationale. The leader must produce a Context Artefact. A structured record of the 'why' and 'what' that allows teams to immediately use that context in their own AI workflows."
+      },
+      {
+        quote: "Bad Context + AI = Bad Output + Low Trust. Good Context + AI = High Quality + High Adoption."
+      }
+    ]
+  },
+  {
+    title: "Beyond AI-Powered KM",
+    subtitle: "Knowledge is not Context",
+    section: "Why AI Changes Everything",
+    content: [
+      {
+        text: "Across the industry, the dominant trend is to centralise documents, apply AI search, generate summaries, auto-tag content, and automate updates. Vendors promise that AI-enhanced SaaS will solve the problem."
+      },
+      {
+        text: "These tools are valuable but insufficient. The distinction is critical:"
+      },
+      {
+        quote: "Knowledge is not context."
+      },
+      {
+        text: "Knowledge bases, even AI-enhanced ones, grow horizontally. Pages, tickets, slide decks, comments, transcripts. They become more searchable, but not more meaningful."
+      },
+      {
+        text: "Context, as defined in this analysis, is different. Context is deliberately authored, multi-altitude, cascading, and designed for reasoning. From enterprise strategy down to a single feature."
+      },
+      {
+        text: "AI-powered search cannot decide what context <em>should</em> exist at each altitude. How artefacts inherit from one another. Who owns their maintenance. When they must be refreshed. How they flow into planning, delivery, risk, change, and training."
+      },
+      {
+        text: "<strong>The critical distinction:</strong> If CBA only invests in AI-powered knowledge management, we will get better search and summarisation of the past. But we will not fix the flow of context that makes future decisions better."
+      },
+      {
+        quote: "AI-powered knowledge management makes you faster. A Context-First operating model makes you right."
       }
     ]
   },
   {
     title: "The Solution Overview",
     subtitle: "Context-First Framework",
+    section: "The Solution",
     content: [
       {
         text: "We must change our approach. Instead of using collaboration to find context, we need to create context to enable collaboration. This new operating model is built on producing, managing, and leveraging <strong>Context Artefacts</strong>."
@@ -641,6 +733,7 @@ const slides: Slide[] = [
   {
     title: "Context Artefacts",
     subtitle: "The Solution",
+    section: "The Solution",
     content: [
       {
         text: "Think of <strong>Context Artefacts</strong> as 'Claude Skills' but for organisational context. They are curated, high-leverage documents designed to be used as seed context when your people use AI tools."
@@ -661,6 +754,7 @@ const slides: Slide[] = [
   {
     title: "Context Cascade: What is it?",
     subtitle: "The Solution",
+    section: "The Solution",
     content: [
       {
         text: "Context Cascade establishes a hierarchy of shared context that flows throughout the organisation. It supplements traditional communication with structured <strong>Context Artefacts</strong>."
@@ -681,6 +775,7 @@ const slides: Slide[] = [
   {
     title: "Context Cascade: In Practice",
     subtitle: "The Solution",
+    section: "The Solution",
     content: [
       {
         heading: "Why it matters",
@@ -695,6 +790,7 @@ const slides: Slide[] = [
   {
     title: "Context Core: What is it?",
     subtitle: "The Solution",
+    section: "The Solution",
     content: [
       {
         text: "The Context Core is a team's living repository of <strong>Context Artefacts</strong>. It is where knowledge moves from people's heads into shared, queryable assets."
@@ -716,6 +812,7 @@ const slides: Slide[] = [
   {
     title: "Context Core: In Practice",
     subtitle: "The Solution",
+    section: "The Solution",
     content: [
       {
         heading: "Why it matters",
@@ -733,6 +830,7 @@ const slides: Slide[] = [
   {
     title: "Patterns of Work",
     subtitle: "The Solution",
+    section: "The Solution",
     content: [
       {
         text: "We must shift our operating rhythm to prioritize the creation and maintenance of context. We need to unlearn the Agile habit of low documentation."
@@ -752,6 +850,7 @@ const slides: Slide[] = [
   {
     title: "Stitching It Together",
     subtitle: "The Solution",
+    section: "The Solution",
     content: [
       {
         text: "How does this come together in a quarterly cycle?"
@@ -766,69 +865,156 @@ const slides: Slide[] = [
     ]
   },
   {
-    title: "The Business Case",
-    subtitle: "The ROI",
+    title: "The Value Proposition",
+    subtitle: "Lowering the Barrier to Entry",
+    section: "The Business Case",
     content: [
       {
-        heading: "The ROI",
-        listItems: [
-          "<strong>Reduced Rework:</strong> By providing explicit context upfront, we eliminate the 'guessing game'.",
-          "<strong>Faster Onboarding:</strong> New team members (and AI agents) can get up to speed in minutes by querying the Context Core.",
-          "<strong>Higher Quality:</strong> Outputs are consistently aligned with strategy and quality standards."
-        ]
+        text: "The primary objection to documenting context is \"it takes too much time.\" This view ignores how AI fundamentally changes the equation."
       },
       {
-        heading: "How Work Changes",
-        listItems: [
-          "<strong>Docs-Last → Context-First:</strong> Critical context captured before work starts.",
-          "<strong>Status Meetings → Update-Don't-Meet:</strong> Asynchronous updates replace status calls.",
-          "<strong>Tacit 'Hero' Knowledge → Explicit Shared Context:</strong> Instinct made verifiable.",
-          "<strong>Centralised Quality → Socialised Quality:</strong> Standards embedded in the Context Cascade."
-        ]
+        text: "A Context-First model actually <strong>lowers the barrier</strong> to using AI by solving the \"Blank Page\" problem. We can drastically reduce the time to create context by using AI as a force multiplier:"
+      },
+      {
+        text: "<strong>Method A. The AI Iterate Loop:</strong> Dump rough bullet points into an LLM. Ask it to \"Structure this into a Context Artefact.\" Review and refine. Time: 5 minutes."
+      },
+      {
+        text: "<strong>Method B. Voice-to-Context:</strong> Dictate your rationale and constraints while walking. Use AI to extract and format the artefact. Time: 3 minutes."
+      },
+      {
+        text: "<strong>Method C. Discussion-to-Artefact:</strong> Have the debate. Record it. Use AI to synthesise the decision and rationale into an artefact. Time: 0 minutes. A byproduct of the meeting."
+      },
+      {
+        text: "Once context exists, it becomes the \"fuel\" for every downstream interaction. An employee does not have to spend hours prompting an AI with background information. They simply point the AI to the established Context Artefact."
       }
     ]
   },
   {
-    title: "Getting Started",
-    subtitle: "Where and How to Start",
+    title: "The Economics of Context",
+    subtitle: "Context is a Product, Not Overhead",
+    section: "The Business Case",
     content: [
       {
-        heading: "Immediate Start",
-        text: "Take a strategic document and include it in your AI prompts. Ask AI to draft something with that context attached. The difference is immediate and visceral."
+        text: "The argument that \"writing context is extra homework\" is dangerously flawed."
       },
       {
-        heading: "Context Tiers",
-        listItems: [
-          "<strong>Tier 1 - Strategic (Highest Leverage):</strong> Annual strategy, OKRs.",
-          "<strong>Tier 2 - Domain/Team (High Leverage):</strong> Quarterly memos, decisions.",
-          "<strong>Tier 3 - Project (Medium Leverage):</strong> Feature specs.",
-          "<strong>Tier 4 - Tactical (Low Leverage):</strong> Bug tickets, meeting notes."
-        ]
+        quote: "Context Hoarding is a Performance Issue. Holding critical context in your head is not a sign of agility. It is a single point of failure."
       },
       {
-        heading: "Addressing Objections",
-        text: "<strong>'Waterfall 2.0'?</strong> No, it's about making intent explicit, not locking in specs.<br/><strong>'Maintenance?'</strong> 15 mins updating a doc is better than hours in repetitive meetings."
+        text: "\"I didn't have time to write it down\" is simply an admission that you have chosen to pay the <strong>Meeting Tax</strong> instead. Without explicit context, AI adoption stalls, meetings multiply, experts become bottlenecks, and rework grows."
+      },
+      {
+        text: "AI amplifies whatever it is given. Bad context yields bad output. No context yields generic output. Good context yields strategic, high-quality, aligned output."
+      },
+      {
+        text: "<strong>Context is no longer overhead. It is a product.</strong>"
+      }
+    ]
+  },
+  {
+    title: "Addressing Objections",
+    subtitle: "Waterfall & Old Habits",
+    section: "The Business Case",
+    content: [
+      {
+        heading: "\"This Sounds Like Waterfall 2.0\"",
+        text: "No. Waterfall docs were about locking in detailed specs. Context Artefacts are about making <strong>intent explicit</strong>. They are scope-limited (problem/constraints, not solutions) and designed to evolve."
+      },
+      {
+        text: "The real test: Can you change direction without rewriting documentation? In Waterfall, no. In Context-First, yes."
+      },
+      {
+        heading: "\"People Will Revert to Old Habits\"",
+        text: "Only if the new way is harder. We make it easier: AI does the drafting. Context answers questions faster than scheduling a meeting. Context integrates into your workflow (Slack/Jira). Value is visible immediately."
+      },
+      {
+        text: "<strong>Clear ownership:</strong> Every Context Artefact has a single, named owner who holds the pen."
+      }
+    ]
+  },
+  {
+    title: "Addressing Objections",
+    subtitle: "KM & Confluence",
+    section: "The Business Case",
+    content: [
+      {
+        heading: "\"This Is Just Knowledge Management All Over Again\"",
+        text: "Traditional KM failed because creation was expensive and consumption low-value. Now, <strong>creation cost has collapsed</strong> (AI drafting) and <strong>consumption value has exploded</strong> (AI querying)."
+      },
+      {
+        heading: "\"How Is This Different from Confluence Plus AI?\"",
+        text: "Confluence AI helps you find documents (retrieval). It doesn't tell you what context <em>should</em> exist, how it inherits, or wire it into your planning rhythm."
+      },
+      {
+        quote: "AI-powered knowledge management optimises for retrieval. Context-First optimises for reasoning."
+      }
+    ]
+  },
+  {
+    title: "How Work Changes",
+    subtitle: "The Operating System for AI",
+    section: "The Business Case",
+    content: [
+      {
+        heading: "From Docs-last to Context-first",
+        text: "Critical context is captured <em>before</em> work starts, not after development."
+      },
+      {
+        heading: "From Status Meetings to Update-don't-meet",
+        text: "Meetings are reserved for novel issues, not status updates."
+      },
+      {
+        heading: "From Tacit \"Hero\" Knowledge to Explicit Shared Context",
+        text: "Instinct is made explicit and verifiable."
+      },
+      {
+        heading: "From Centralised to Socialised Quality",
+        text: "Standards are verifiable in the Context Cascade, not just held by senior managers."
+      },
+      {
+        text: "This is not documentation. This is the <strong>operating system for AI-enabled work</strong>."
       }
     ]
   },
   {
     title: "How We Start",
-    subtitle: "/ The Quarterly Context Pilot",
+    subtitle: "The Quarterly Context Pilot",
+    section: "Getting Started",
     content: [
       {
-        text: "We do not need a massive rollout. We can get the basics right in one Quarterly Planning cycle."
+        text: "We do not need a massive rollout. We can get the basics right in just one Quarterly Planning cycle."
       },
       {
-        heading: "Top-Down:",
-        text: "Leaders publish context documents. What we're doing, what's stopping us, what's non-negotiable."
+        heading: "The Opportunity: Quarterly Planning",
+        text: "Instead of just talking at people in Town Halls, we ask leaders to write down the key context <em>before</em> planning starts."
       },
       {
-        heading: "Bottom-Up:",
-        text: "Squads set up their own team context. What 'done' looks like. What they're prioritising."
+        heading: "Top-Down (Leaders)",
+        text: "Publish context documents: What we are trying to do, what is stopping us, and what is non-negotiable."
       },
       {
-        heading: "The Tool:",
-        text: "The Quarterly Context Memo—the place where teams write down their context so everyone, and AI, can understand."
+        heading: "Bottom-Up (Teams)",
+        text: "Squads use the planning window to set up their own team context: What the team is here for, what \"done\" looks like."
+      }
+    ]
+  },
+  {
+    title: "How We Start",
+    subtitle: "Bringing It Together",
+    section: "Getting Started",
+    content: [
+      {
+        text: "By the end of planning, we connect the two:"
+      },
+      {
+        listItems: [
+          "<strong>Teams use AI</strong> to check if their plans make sense against the leadership's goals.",
+          "<strong>Leaders use AI</strong> to see what is happening across the teams (e.g., \"Summarise the top 3 risks\")."
+        ]
+      },
+      {
+        heading: "The Tool: The Quarterly Context Memo",
+        text: "We use the existing Quarterly Memo but make it useful. It becomes the place where teams write down their context so everyone (and the AI) can understand."
       }
     ]
   },
@@ -836,17 +1022,16 @@ const slides: Slide[] = [
     title: "Conclusion",
     subtitle: "/ In the age of AI, context is infrastructure",
     isConclusion: true,
+    section: "Conclusion",
     content: [
       {
-        text: "We cannot 'prompt engineer' our way out of a lack of strategy. AI amplifies whatever it is given."
+        text: "The events of the past month have clarified our trajectory. We cannot \"prompt engineer\" our way out of a lack of strategy. AI amplifies whatever it is given."
       },
       {
-        heading: "We do not have an AI adoption problem.",
-        text: "We have a context problem."
+        text: "We do not have an AI adoption problem. We have a <strong>context problem</strong>."
       },
       {
-        heading: "The solution:",
-        text: "Build Context Artefacts. Establish a Context Cascade. Create Context Cores. Shift to Pause and Prime. Treat context as a first-class asset."
+        text: "AI cannot operate on tacit knowledge. It requires structured, explicit, cascading context. The economics have shifted. Context is no longer administrative overhead. It is infrastructure."
       },
       {
         quote: "The real question is not whether we can afford the time to capture it, but whether we can afford an organisation that cannot clearly articulate its own reasoning to the intelligence it seeks to employ."
@@ -1006,19 +1191,27 @@ export default function ContextFirstWhitepaper() {
           <div
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full"
             style={{
-              background: 'rgba(0, 102, 255, 0.05)',
+              background: 'rgba(255, 255, 255, 0.05)',
               backdropFilter: 'blur(16px) saturate(180%)',
-              border: '1px solid rgba(0, 102, 255, 0.2)',
-              boxShadow: 'inset 0 1px 0 rgba(100, 180, 255, 0.2), 0 4px 20px rgba(0, 0, 0, 0.2)'
+              border: '1px solid rgba(255, 255, 255, 0.2)',
+              boxShadow: 'inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 4px 20px rgba(0, 0, 0, 0.2)'
             }}
           >
-            <span className="text-blue-400 font-mono text-sm font-bold">
+            <span className="text-white font-mono text-sm font-bold">
               {String(currentSlide + 1).padStart(2, '0')}
             </span>
             <span className="text-white/30 text-sm">/</span>
             <span className="text-white/50 font-mono text-sm">
               {String(slides.length).padStart(2, '0')}
             </span>
+            {slides[currentSlide].section && (
+              <>
+                <span className="text-white/30 text-sm">|</span>
+                <span className="text-gray-300 font-medium text-sm tracking-wide">
+                  {slides[currentSlide].section}
+                </span>
+              </>
+            )}
           </div>
         </div>
 
@@ -1108,26 +1301,26 @@ export default function ContextFirstWhitepaper() {
       </div>
 
       {/* Bottom Navigation */}
-      <div className="fixed bottom-0 left-0 right-0 z-50 p-5 pb-8">
+      <div className="fixed bottom-0 left-0 right-0 z-50 p-3 pb-5">
         <div
-          className="max-w-sm mx-auto rounded-full p-1.5 flex items-center gap-1.5"
+          className="max-w-[280px] mx-auto rounded-full p-1 flex items-center gap-1"
           style={{
-            background: 'rgba(0, 5, 20, 0.4)',
+            background: 'rgba(10, 10, 10, 0.8)',
             backdropFilter: 'blur(40px) saturate(150%)',
-            border: '1px solid rgba(0, 102, 255, 0.15)',
-            boxShadow: 'inset 0 0 20px rgba(0, 102, 255, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 20px 40px -10px rgba(0, 0, 0, 0.5)'
+            border: '1px solid rgba(255, 255, 255, 0.15)',
+            boxShadow: 'inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 20px 40px -10px rgba(0, 0, 0, 0.5)'
           }}
         >
           {/* Prev Button */}
           <button
             onClick={() => currentSlide > 0 && setCurrentSlide(currentSlide - 1)}
             disabled={currentSlide === 0}
-            className={`w-14 h-14 rounded-full flex items-center justify-center transition-all duration-300 ${currentSlide === 0
+            className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 ${currentSlide === 0
               ? 'opacity-20 cursor-not-allowed'
               : 'hover:bg-white/10 active:scale-90'
               }`}
           >
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-white/70">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-white/70">
               <path d="M15 18l-6-6 6-6" />
             </svg>
           </button>
@@ -1135,38 +1328,30 @@ export default function ContextFirstWhitepaper() {
           {/* Center - Menu Button */}
           <button
             onClick={() => setShowMenu(true)}
-            className="flex-1 h-14 rounded-full flex items-center justify-center gap-2.5 transition-all duration-300 active:scale-95"
+            className="flex-1 h-10 rounded-full flex items-center justify-center gap-2 transition-all duration-300 active:scale-95"
             style={{
-              background: 'linear-gradient(135deg, rgba(0, 102, 255, 0.25), rgba(0, 102, 255, 0.1))',
-              border: '1px solid rgba(0, 102, 255, 0.2)'
+              background: 'rgba(255, 255, 255, 0.08)',
+              border: '1px solid rgba(255, 255, 255, 0.1)'
             }}
           >
-            <div className="flex gap-1">
-              <div className="w-1 h-1 rounded-full bg-white/60" />
-              <div className="w-1 h-1 rounded-full bg-white/60" />
-              <div className="w-1 h-1 rounded-full bg-white/60" />
+            <div className="flex gap-0.5">
+              <div className="w-0.5 h-0.5 rounded-full bg-white/60" />
+              <div className="w-0.5 h-0.5 rounded-full bg-white/60" />
+              <div className="w-0.5 h-0.5 rounded-full bg-white/60" />
             </div>
-            <span className="text-white/80 text-sm font-medium">Jump to</span>
+            <span className="text-white/80 text-xs font-medium">Jump to</span>
           </button>
 
           {/* Next Button */}
           <button
             onClick={() => currentSlide < slides.length - 1 && setCurrentSlide(currentSlide + 1)}
             disabled={currentSlide === slides.length - 1}
-            className={`w-14 h-14 rounded-full flex items-center justify-center transition-all duration-300 ${currentSlide === slides.length - 1
+            className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 ${currentSlide === slides.length - 1
               ? 'opacity-20 cursor-not-allowed'
-              : 'active:scale-90'
+              : 'hover:bg-white/10 active:scale-90'
               }`}
-            style={{
-              background: currentSlide === slides.length - 1
-                ? 'transparent'
-                : 'linear-gradient(135deg, #0066ff, #3b82f6)',
-              boxShadow: currentSlide === slides.length - 1
-                ? 'none'
-                : '0 4px 15px rgba(0, 102, 255, 0.4)'
-            }}
           >
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-white">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-white/70">
               <path d="M9 18l6-6-6-6" />
             </svg>
           </button>
