@@ -7,89 +7,23 @@ import { GrainOverlay } from "@/components/grain-overlay";
 
 // Custom SVG visuals for each slide
 const SlideVisuals: Record<number, React.FC> = {
-  // Title - Abstract network constellation
-  0: () => (
-    <svg viewBox="0 0 200 120" className="w-full h-32 md:h-40 opacity-90">
-      <defs>
-        <linearGradient id="grad0" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.9" />
-          <stop offset="100%" stopColor="#8b5cf6" stopOpacity="0.9" />
-        </linearGradient>
-      </defs>
-      {/* Central node */}
-      <circle cx="100" cy="60" r="8" fill="url(#grad0)" />
-      <circle cx="100" cy="60" r="12" fill="none" stroke="url(#grad0)" strokeWidth="1" opacity="0.5" />
-      {/* Orbiting nodes */}
-      <circle cx="40" cy="40" r="4" fill="#3b82f6" opacity="0.7" />
-      <circle cx="160" cy="35" r="5" fill="#8b5cf6" opacity="0.7" />
-      <circle cx="50" cy="90" r="3" fill="#a855f7" opacity="0.6" />
-      <circle cx="150" cy="85" r="4" fill="#3b82f6" opacity="0.7" />
-      <circle cx="75" cy="25" r="3" fill="#6366f1" opacity="0.5" />
-      <circle cx="130" cy="95" r="3" fill="#6366f1" opacity="0.5" />
-      {/* Connection lines */}
-      <line x1="100" y1="60" x2="40" y2="40" stroke="url(#grad0)" strokeWidth="1" opacity="0.4" />
-      <line x1="100" y1="60" x2="160" y2="35" stroke="url(#grad0)" strokeWidth="1" opacity="0.4" />
-      <line x1="100" y1="60" x2="50" y2="90" stroke="url(#grad0)" strokeWidth="1" opacity="0.3" />
-      <line x1="100" y1="60" x2="150" y2="85" stroke="url(#grad0)" strokeWidth="1" opacity="0.4" />
-      <line x1="40" y1="40" x2="75" y2="25" stroke="#3b82f6" strokeWidth="0.5" opacity="0.3" />
-      <line x1="150" y1="85" x2="130" y2="95" stroke="#8b5cf6" strokeWidth="0.5" opacity="0.3" />
-    </svg>
-  ),
+  // Title - No visual for opening slide
 
-  // At a Glance - Dashboard/radar
+
+  // Executive Summary - Context Flow/Radar (Nano Banana Generated)
   1: () => (
-    <svg viewBox="0 0 200 120" className="w-full h-32 md:h-40 opacity-90">
-      <defs>
-        <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#3b82f6" />
-          <stop offset="100%" stopColor="#8b5cf6" />
-        </linearGradient>
-      </defs>
-      {/* Radar circles */}
-      <circle cx="100" cy="60" r="45" fill="none" stroke="url(#grad1)" strokeWidth="1" opacity="0.2" />
-      <circle cx="100" cy="60" r="30" fill="none" stroke="url(#grad1)" strokeWidth="1" opacity="0.3" />
-      <circle cx="100" cy="60" r="15" fill="none" stroke="url(#grad1)" strokeWidth="1" opacity="0.4" />
-      {/* Radar lines */}
-      <line x1="100" y1="15" x2="100" y2="105" stroke="url(#grad1)" strokeWidth="0.5" opacity="0.2" />
-      <line x1="55" y1="60" x2="145" y2="60" stroke="url(#grad1)" strokeWidth="0.5" opacity="0.2" />
-      <line x1="68" y1="28" x2="132" y2="92" stroke="url(#grad1)" strokeWidth="0.5" opacity="0.2" />
-      <line x1="132" y1="28" x2="68" y2="92" stroke="url(#grad1)" strokeWidth="0.5" opacity="0.2" />
-      {/* Data points */}
-      <circle cx="100" cy="35" r="4" fill="#3b82f6" />
-      <circle cx="125" cy="50" r="3" fill="#8b5cf6" />
-      <circle cx="80" cy="75" r="3.5" fill="#a855f7" />
-      <circle cx="115" cy="80" r="3" fill="#6366f1" />
-      {/* Sweep line */}
-      <line x1="100" y1="60" x2="130" y2="30" stroke="url(#grad1)" strokeWidth="2" opacity="0.8" />
-    </svg>
+    <div className="w-full h-32 md:h-40 flex items-center justify-center overflow-hidden rounded-lg opacity-90">
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img src="/images/slide-1-radar.png" alt="Context Flow Radar" className="w-full h-full object-cover" />
+    </div>
   ),
 
-  // AI Paradox - Empty fuel gauge
+  // AI Paradox - Strategy Slide vs Context Document (Nano Banana Generated)
   2: () => (
-    <svg viewBox="0 0 200 120" className="w-full h-32 md:h-40 opacity-90">
-      <defs>
-        <linearGradient id="grad2" x1="0%" y1="100%" x2="0%" y2="0%">
-          <stop offset="0%" stopColor="#3b82f6" />
-          <stop offset="100%" stopColor="#8b5cf6" />
-        </linearGradient>
-      </defs>
-      {/* Gauge arc */}
-      <path d="M 40 90 A 60 60 0 0 1 160 90" fill="none" stroke="rgba(255,255,255,0.1)" strokeWidth="12" strokeLinecap="round" />
-      {/* Filled portion - very low */}
-      <path d="M 40 90 A 60 60 0 0 1 55 65" fill="none" stroke="url(#grad2)" strokeWidth="12" strokeLinecap="round" />
-      {/* Tick marks */}
-      <line x1="45" y1="80" x2="55" y2="75" stroke="rgba(255,255,255,0.3)" strokeWidth="1" />
-      <line x1="70" y1="50" x2="78" y2="55" stroke="rgba(255,255,255,0.3)" strokeWidth="1" />
-      <line x1="100" y1="35" x2="100" y2="45" stroke="rgba(255,255,255,0.3)" strokeWidth="1" />
-      <line x1="130" y1="50" x2="122" y2="55" stroke="rgba(255,255,255,0.3)" strokeWidth="1" />
-      <line x1="155" y1="80" x2="145" y2="75" stroke="rgba(255,255,255,0.3)" strokeWidth="1" />
-      {/* Needle */}
-      <line x1="100" y1="90" x2="60" y2="55" stroke="white" strokeWidth="2" strokeLinecap="round" />
-      <circle cx="100" cy="90" r="6" fill="white" />
-      {/* Labels */}
-      <text x="35" y="105" fill="rgba(255,255,255,0.5)" fontSize="8" fontFamily="monospace">E</text>
-      <text x="160" y="105" fill="rgba(255,255,255,0.5)" fontSize="8" fontFamily="monospace">F</text>
-    </svg>
+    <div className="w-full h-32 md:h-40 flex items-center justify-center overflow-hidden rounded-lg opacity-90">
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img src="/images/slide-2-comparison.png" alt="Structure vs Context Comparison" className="w-full h-full object-cover" />
+    </div>
   ),
 
   // Diagnosis - Calendar with gaps
@@ -1025,13 +959,13 @@ const slides: Slide[] = [
     section: "Conclusion",
     content: [
       {
-        text: "The events of the past month have clarified our trajectory. We cannot \"prompt engineer\" our way out of a lack of strategy. AI amplifies whatever it is given."
+        text: "The events of the past month have clarified our trajectory. We cannot \"prompt engineer\" our way to value. AI amplifies whatever it is given."
       },
       {
         text: "We do not have an AI adoption problem. We have a <strong>context problem</strong>."
       },
       {
-        text: "AI cannot operate on tacit knowledge. It requires structured, explicit, cascading context. The economics have shifted. Context is no longer administrative overhead. It is infrastructure."
+        text: "AI cannot operate on tacit knowledge. It requires structured, explicit, cascading context. The economics have shifted. Context is no longer administrative overhead. It is product."
       },
       {
         quote: "The real question is not whether we can afford the time to capture it, but whether we can afford an organisation that cannot clearly articulate its own reasoning to the intelligence it seeks to employ."
@@ -1180,23 +1114,31 @@ export default function ContextFirstWhitepaper() {
 
       {/* Main Content */}
       <div
-        className="flex-1 flex flex-col px-6 md:px-12 lg:px-24 py-16 pb-40 max-w-4xl mx-auto w-full transition-transform duration-100 overflow-y-auto"
+        className={`flex-1 flex flex-col px-6 md:px-12 lg:px-24 py-16 pb-40 max-w-4xl mx-auto w-full transition-transform duration-100 overflow-y-auto ${currentSlide === 0 ? 'justify-center items-center text-center' : ''}`}
         style={{
           transform: isDragging ? `translateX(${dragOffset}px)` : 'translateX(0)',
         }}
       >
 
         {/* Slide Counter Pill */}
-        <div className="mb-4 flex items-center gap-3">
+        <div className="absolute top-6 right-6 md:right-12 lg:right-24 z-10 flex items-center gap-3">
           <div
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full"
             style={{
-              background: 'rgba(255, 255, 255, 0.05)',
-              backdropFilter: 'blur(16px) saturate(180%)',
-              border: '1px solid rgba(255, 255, 255, 0.2)',
-              boxShadow: 'inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 4px 20px rgba(0, 0, 0, 0.2)'
+              background: 'rgba(10, 10, 10, 0.8)',
+              backdropFilter: 'blur(40px) saturate(150%)',
+              border: '1px solid rgba(255, 255, 255, 0.15)',
+              boxShadow: 'inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 20px 40px -10px rgba(0, 0, 0, 0.5)'
             }}
           >
+            {slides[currentSlide].section && (
+              <>
+                <span className="text-gray-300 font-medium text-sm tracking-wide">
+                  {slides[currentSlide].section}
+                </span>
+                <span className="text-white/30 text-sm">|</span>
+              </>
+            )}
             <span className="text-white font-mono text-sm font-bold">
               {String(currentSlide + 1).padStart(2, '0')}
             </span>
@@ -1204,25 +1146,12 @@ export default function ContextFirstWhitepaper() {
             <span className="text-white/50 font-mono text-sm">
               {String(slides.length).padStart(2, '0')}
             </span>
-            {slides[currentSlide].section && (
-              <>
-                <span className="text-white/30 text-sm">|</span>
-                <span className="text-gray-300 font-medium text-sm tracking-wide">
-                  {slides[currentSlide].section}
-                </span>
-              </>
-            )}
           </div>
-        </div>
-
-        {/* Visual */}
-        <div className="mb-6">
-          {Visual && <Visual />}
         </div>
 
         {/* Title */}
         <h1
-          className={`text-white font-semibold tracking-tight mb-3 leading-[1.1] ${slide.isTitle ? 'text-4xl md:text-5xl lg:text-6xl' : 'text-2xl md:text-3xl lg:text-4xl'
+          className={`text-white font-semibold tracking-tight mb-3 leading-[1.1] mt-12 ${slide.isTitle ? 'text-4xl md:text-5xl lg:text-6xl' : 'text-2xl md:text-3xl lg:text-4xl'
             }`}
           style={{
             fontFamily: 'system-ui, -apple-system, sans-serif',
@@ -1244,6 +1173,11 @@ export default function ContextFirstWhitepaper() {
             {slide.subtitle}
           </p>
         )}
+
+        {/* Visual */}
+        <div className="mb-6">
+          {Visual && <Visual />}
+        </div>
 
         {/* Content */}
         <div className={`space-y-4 ${slide.isTitle ? 'mt-4' : ''}`}>
@@ -1358,7 +1292,7 @@ export default function ContextFirstWhitepaper() {
         </div>
 
         <p className="text-center text-white/25 text-[11px] mt-3 tracking-wide md:hidden">
-          ← Swipe to navigate →
+          Written by Tim Gillam
         </p>
       </div>
 
